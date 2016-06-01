@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+
+ <section class="main-container col1-layout">
+    <div class="main container">
+      <div class="col-main">
+        <div class="cart wow">
+          <div class="page-title">
+            <h2>Producto</h2>
+          </div>
+          <div class="delivery">
+          <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6"> <img src="{{ prod.get_image_url }}" class="img-responsive animate scale" alt=""></div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+          <h3>Caracteristicas. </h3>
+          <ul class="styled-list arrow">
+            <li><strong>Nombre: {{ prod.title }}.</strong></li>
+            <li><strong> Precio de renta por dia: {{ prod.price }}</strong></li>
+            <li><strong>Categoria: {{ prod.categories_set.all }}
+            </strong></li>
+          </ul>
+            <p>Descripcion: {%for foo in  prod.description_set.all %}
+                                {{ foo }}
+                            {% endfor %}.</p>
+          <p>Nulla libero. Donec et mi eu massa ultrices scelerisque. Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem. </p>
+        </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <section class="content-row grey-container wow">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <h3>Seleccione la fecha de inicio y de termino de la renta</h3>
+            <p><strong>Seleccione cuidadosamente la fecha de inicio y de termino de la renta.</strong></p>
+                <div class="form-group">
+                    <form action="" method="post">
+                    {% csrf_token %}
+                        <div class="input-group date" id="datetimepicker1">
+                            {{ form.fecha_inicio }}
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        <hr/>
+                        <div class="input-group date" id="datetimepicker2">
+                            {{ form.fecha_termino }}
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        {{ form.producto }}
+                    </form>
+                </div>
+            <a href="#" class="button more-info">Pagar.</a> </div>
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <h3>Terminos y condiciones.</h3>
+            <p>
+                Distribuidora Liverpool S.A. de C.V., con domicilio en la calle Mario Pani número 200, Colonia Santa Fe Cuajimalpa, Delegación Cuajimalpa, C.P. 05348, en México, Distrito Federal, es responsable de la confidencialidad, uso y protección de la información personal, que nos es proporcionada.
+                Para realizar las fines señalados en el presente aviso, se le podrán solicitar datos generales respecto a su identificación, domicilio, información crediticia, laboral o patrimonial, misma que será utilizada para identificarle y dar cumplimiento a las relaciones comerciales que realice con nosotros, proveerle de los servicios y productos adquiridos, otorgarle una línea de crédito, informarle sobre nuestras ofertas, promociones y encuestas respecto a nuestros productos y/o servicios.
+                Para el caso que desee limitar el uso o divulgación de su información personal, ejercitar sus derechos de acceder, rectificar y cancelar sus datos personales, así como de oponerse al tratamiento de los mismos, o revocar el consentimiento que para tal fin nos haya otorgado, lo podrá realizar a través de los siguientes canales de atención, previa acreditación de su identidad: Centro de Atención Telefónica a los teléfonos 52629999 o 018007135555 o través de nuestro correo electrónico datospersonales@liverpool.com.mx, en donde
+                se le informarán los procedimientos establecidos para el ejercicio de los derechos aquí señalados.
+            </p>
+            <ul class="styled-list arrow">
+              <li><strong>Donec et mi eu massa ultrices scelerisque. </strong></li>
+              <li><strong> Nullam ac nisi non eros gravida venenatis sollicitudin lobortis </strong></li>
+              <li><strong>Curabitur convallis facilisis lorem. Vivamus euismod nulla vel nunc </strong></li>
+              <li><strong>Fusce tincidunt, justo congue egestas</strong></li>
+            </ul>
+              <p>
+                  <input type="checkbox" />Acepto terminos y condiciones.</input>
+              </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+{% endblock %}
+{% block scripts %}
+    {% load staticfiles %}
+     <script src="https://code.jquery.com/jquery-1.1.2.pack.js"></script>
+{#    <script type="text/javascript" src="{% static  "bower_components/jquery/dist/jquery.min.js" %}"></script>#}
+  <script type="text/javascript" src="{% static  "bower_components/moment/min/moment.min.js" %}"></script>
+  <script type="text/javascript" src="{% static  "js/bootstrap.min.js" %}"></script>
+  <script type="text/javascript" src="{% static  "bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" %}"></script>
+  <link rel="stylesheet" href="{% static  "css/bootstrap.min.css" %}" />
+  <link rel="stylesheet" href="{% static  "bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" %}" />
+{% endblock %}

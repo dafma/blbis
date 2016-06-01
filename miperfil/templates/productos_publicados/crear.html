@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block styles %}
+    <style>
+    .block-company .block-title {
+        background: none repeat scroll 0 0 #a62ead;
+        color: #fff;
+        font-family: DIN, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0;
+        padding: 8px 10px;
+        text-transform: uppercase;
+    }
+    </style>
+{% endblock %}
+
+{% block contenido %}
+
+<div class="main-container col2-right-layout">
+    <div class="main container">
+      <div class="row">
+        <section class="col-main col-sm-9 wow">
+          <div class="page-title">
+            <h2>Publicar un nuevo producto</h2>
+          </div>
+          <div class="static-contain">
+            <fieldset class="group-select">
+              <ul>
+                <li id="billing-new-address-form">
+                  <fieldset>
+                      <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <hr>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <hr>
+                    </form>
+                  </fieldset>
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+        </section>
+        <aside class="col-right sidebar col-sm-3 wow">
+          <div class="block block-company">
+            <div class="block-title">Ayuda!</div>
+            <div class="block-content">
+              <ol id="recently-viewed-items">
+                <li class="item odd"><a href="#">Guia para publicar!</a></li>
+                <li class="item last"><strong>Contactar a soporte!</strong></li>
+              </ol>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <!--End main-container -->
+
+{% endblock %}

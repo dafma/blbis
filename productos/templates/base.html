@@ -1,0 +1,268 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "partesbase/head.html" %}
+    {% block styles %}
+
+    {% endblock styles %}
+</head>
+<body class="cms-index-index">
+<div class="page">
+  <!-- Header -->
+  <header class="header-container">
+    <div class="header-top">
+      <div class="container">
+        <div class="row">
+          <!-- Header Language -->
+          <div class="col-xs-6">
+          </div>
+          <div class="col-xs-6">
+            <!-- Header Top Links -->
+            <div class="toplinks">
+              <div class="links">
+                <div class="phone hidden-xs">Bienvenido {{ request.user.username }}! </div>
+              </div>
+            </div>
+            <!-- End Header Top Links -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header container">
+      <div class="row">
+        <div class="col-lg-2 col-sm-3 col-md-2 col-xs-12">
+          <!-- Header Logo -->
+         <a class="logo" title="Se Retna Todo" href="/"><img alt="Se Renta Todo" src="{% static "images/logo-srt.png" %}"></a>
+          <!-- End Header Logo -->
+        </div>
+        <div class="col-lg-7 col-sm-4 col-md-6 col-xs-12">
+          <!-- Search-col -->
+          <div class="search-box">
+            <form action="cat" method="POST" id="search_mini_form" name="Categories">
+              <select name="category_id" class="cate-dropdown hidden-xs">
+                <option value="0">Todas las categorias</option>
+                <option value="36">Camera</option>
+                <option value="37">Electronics</option>
+                <option value="42">&nbsp;&nbsp;&nbsp;Cell Phones</option>
+                <option value="43">&nbsp;&nbsp;&nbsp;Cameras</option>
+                <option value="44">&nbsp;&nbsp;&nbsp;Laptops</option>
+                <option value="45">&nbsp;&nbsp;&nbsp;Hard Drives</option>
+                <option value="46">&nbsp;&nbsp;&nbsp;Monitors</option>
+                <option value="47">&nbsp;&nbsp;&nbsp;Mouse</option>
+                <option value="48">&nbsp;&nbsp;&nbsp;Digital Cameras</option>
+                <option value="38">Desktops</option>
+                <option value="39">Computer Parts</option>
+                <option value="40">Televisions</option>
+                <option value="41">Featured</option>
+              </select>
+              <input type="text" placeholder="Buscar Aqui..." value="" maxlength="70" class="" name="search" id="search">
+              <button id="submit-button" class="search-btn-bg"><span>Buscar</span></button>
+            </form>
+          </div>
+          <!-- End Search-col -->
+        </div>
+        <!-- Top Cart -->
+        <div class="col-lg-3 col-sm-5 col-md-4 col-xs-12">
+          <div class="top-cart-contain">
+            <div class="mini-cart">
+                {% if request.user.is_authenticated %}
+                                       <div id="select-dropdown" class="closed">
+                    <div id="select-default" class="select default">Opciones</div>
+                    <div class="select option" data-id="hexpound"><a href="{% url 'miPerfil:publicar' %}"> Publicar</a></div>
+                    <div class="select option" data-id="hexpound"><a href="{% url 'miPerfil:productos_rentados' %}"> Productos que he rentado</a></div>
+                    <div class="select option" data-id="hexclean"><a href="{% url 'miPerfil:mis_productos' %}">Mis Productos para Rentar</a></div>
+                    <div class="select option" data-id="rgb"><a href="{% url 'miPerfil:mis_favoritos' %}"> Mis favoritos</a></div>
+                    <div class="select option" data-id="rgba"><a href="{% url 'account:logout' %}"> Salir</a></div>
+                        </div>
+                            </div>
+                            <div id="ajaxconfig_info" style="display:none"> <a href="#/"></a>
+                              <input value="" type="hidden">
+                              <input id="enable_module" value="1" type="hidden">
+                              <input class="effect_to_cart" value="1" type="hidden">
+                              <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
+                            </div>
+                </div>
+                {% endif %}
+
+          <div class="signup">
+              {% if request.user.is_authenticated %}
+              {% else %}
+                      <a title="Login" href="{% url "account:register" %}"><span>Registrate</span></a>
+              {% endif %}
+          </div>
+          <span class="or"> | </span>
+          <div class="login">
+                  {% if request.user.is_authenticated %}
+{#                      <a href="{% url 'logout' %}"> Salir</a>#}
+                {% else %}
+                      <div data-toggle="modal" data-target="#myModal">
+                          <a title="Login" href="{% url "account:login" %}"><span>Ingresar</span></a>
+                      </div>
+                {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- end header -->
+{% include "partesbase/nav.html" %}
+    {% block contenido %}
+    {% endblock contenido %}
+ {% include "partesbase/footer.html" %}
+</div>
+<div class="social">
+  <ul>
+    <li class="fb"><a href="#"></a></li>
+    <li class="tw"><a href="#"></a></li>
+    <li class="googleplus"><a href="#"></a></li>
+    <li class="rss"><a href="#"></a></li>
+    <li class="pintrest"><a href="#"></a></li>
+    <li class="linkedin"><a href="#"></a></li>
+    <li class="youtube"><a href="#"></a></li>
+  </ul>
+</div>
+
+<!-- JavaScript -->
+<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+
+<script type="text/javascript" src="{% static "js/common.js" %}"></script>
+<script type="text/javascript" src="{% static "js/revslider.js" %}"></script>
+<script type="text/javascript" src="{% static "js/owl.carousel.min.js" %}"></script>
+
+{% block scripts  %}
+
+{% endblock %}
+<script type='text/javascript'>
+jQuery(document).ready(function(){
+jQuery('#rev_slider_4').show().revolution({
+dottedOverlay: 'none',
+delay: 5000,
+startwidth: 1170,
+startheight: 580,
+
+hideThumbs: 200,
+thumbWidth: 200,
+thumbHeight: 50,
+thumbAmount: 2,
+
+navigationType: 'thumb',
+navigationArrows: 'solo',
+navigationStyle: 'round',
+
+touchenabled: 'on',
+onHoverStop: 'on',
+
+swipe_velocity: 0.7,
+swipe_min_touches: 1,
+swipe_max_touches: 1,
+drag_block_vertical: false,
+
+spinner: 'spinner0',
+keyboardNavigation: 'off',
+
+navigationHAlign: 'center',
+navigationVAlign: 'bottom',
+navigationHOffset: 0,
+navigationVOffset: 20,
+
+soloArrowLeftHalign: 'left',
+soloArrowLeftValign: 'center',
+soloArrowLeftHOffset: 20,
+soloArrowLeftVOffset: 0,
+
+soloArrowRightHalign: 'right',
+soloArrowRightValign: 'center',
+soloArrowRightHOffset: 20,
+soloArrowRightVOffset: 0,
+
+shadow: 0,
+fullWidth: 'on',
+fullScreen: 'off',
+
+stopLoop: 'off',
+stopAfterLoops: -1,
+stopAtSlide: -1,
+
+shuffle: 'off',
+
+autoHeight: 'off',
+forceFullWidth: 'on',
+fullScreenAlignForce: 'off',
+minFullScreenHeight: 0,
+hideNavDelayOnMobile: 1500,
+
+hideThumbsOnMobile: 'off',
+hideBulletsOnMobile: 'off',
+hideArrowsOnMobile: 'off',
+hideThumbsUnderResolution: 0,
+
+hideSliderAtLimit: 0,
+hideCaptionAtLimit: 0,
+hideAllCaptionAtLilmit: 0,
+startWithSlide: 0,
+fullScreenOffsetContainer: ''
+});
+});
+</script>
+<script>
+    $(document).ready(function() {
+
+	$('#select-default').bind("click", toggle);
+
+	function toggle() {
+		if ($('#select-dropdown').hasClass('open')) {
+			collapse();
+		} else {
+			expand();
+		}
+	}
+	function expand() {
+		$('#select-dropdown').removeClass('closed').addClass('open');
+
+		options = $('.select');
+
+		options.each(function(index) {
+			var layer = options.length - index;
+			$(this).css("top", 40 * index + "px");
+			$(this).css("width", 230);
+			$(this).css("margin-left", -115);
+		});
+	}
+	function collapse() {
+		$('#select-dropdown').removeClass('open').addClass('closed');
+
+		options = $('.select');
+
+		options.each(function(index) {
+			var layer = options.length - index;
+			$(this).css("z-index", layer);
+			$(this).css("top", 2 * index + "px");
+			$(this).css("width", 230 - 2 * index);
+			$(this).css("margin-left", -115 + index);
+		});
+	}
+
+	$('.option').bind("click", select);
+
+	function select() {
+		if ($('#select-dropdown').hasClass('open')) {
+			var selection = $(this).text();
+			$('#select-default').text(selection);
+			var data = $(this).data("id");
+
+			window.dropdown = data;
+			console.log(window.dropdown);
+
+			collapse();
+		} else {
+			expand();
+		}
+	}
+
+	collapse();
+});
+</script>
+</body>
+</html>
