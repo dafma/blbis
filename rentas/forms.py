@@ -13,3 +13,15 @@ class ReservacionForm(forms.ModelForm):
             'fecha_termino': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
 
         }
+
+
+class DateRentForm(forms.Form):
+    fecha_inicio = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control', })
+    ),
+    fecha_termino = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control', })
+    ),
+    producto = forms.IntegerField(
+      widget=forms.NumberInput(attrs={'type':'hidden'})
+    ),

@@ -117,7 +117,7 @@ LOGOUT_URL = reverse_lazy('logout')
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'soldiddfouns@gmail.com'
-EMAIL_HOST_PASSWORD = 'aqui'
+EMAIL_HOST_PASSWORD = 'solidd121314'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

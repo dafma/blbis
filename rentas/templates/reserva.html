@@ -42,7 +42,7 @@
                     <form action="" method="post">
                     {% csrf_token %}
                         <div class="input-group date" id="datetimepicker1">
-                            {{ form.fecha_inicio }}
+                            {{ form.fecha_termino }}
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -57,7 +57,8 @@
                         {{ form.producto }}
                     </form>
                 </div>
-            <a href="#" class="button more-info">Pagar.</a> </div>
+              <input type="submit" value="Enviar"/>
+          </div>
           <div class="col-sm-6 col-md-6 col-lg-6">
             <h3>Terminos y condiciones.</h3>
             <p>

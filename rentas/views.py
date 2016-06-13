@@ -1,9 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from .forms import ReservacionForm
+from .forms import ReservacionForm, DateRentForm
 from productos.models import Product
 
 def reservacion(request, pk):
-    form = ReservacionForm()
+    form = DateRentForm()
+    if form.is_valid():
+        inicio = form.cleaned_data['fecha_inicio']
+        fin = form.cleaned_data['fecha_termino']
+        diasTotales = abs((inicio-fin).days)
+
     producto = get_object_or_404(Product,
                                  id=pk,
                                  active=True)
