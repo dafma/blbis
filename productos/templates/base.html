@@ -73,7 +73,7 @@
                     <div class="select option" data-id="hexpound"><a href="{% url 'miPerfil:productos_rentados' %}"> Productos que he rentado</a></div>
                     <div class="select option" data-id="hexclean"><a href="{% url 'miPerfil:mis_productos' %}">Mis Productos para Rentar</a></div>
                     <div class="select option" data-id="rgb"><a href="{% url 'miPerfil:mis_favoritos' %}"> Mis favoritos</a></div>
-                    <div class="select option" data-id="rgba"><a href="{% url 'account:logout' %}"> Salir</a></div>
+                    <div class="select option" data-id="rgba"><a href="{% url 'logout' %}"> Salir</a></div>
                         </div>
                             </div>
                             <div id="ajaxconfig_info" style="display:none"> <a href="#/"></a>
@@ -88,7 +88,7 @@
           <div class="signup">
               {% if request.user.is_authenticated %}
               {% else %}
-                      <a title="Login" href="{% url "account:register" %}"><span>Registrate</span></a>
+                      <a title="Login" href="{% url "register" %}"><span>Registrate</span></a>
               {% endif %}
           </div>
           <span class="or"> | </span>
@@ -97,7 +97,7 @@
 {#                      <a href="{% url 'logout' %}"> Salir</a>#}
                 {% else %}
                       <div data-toggle="modal" data-target="#myModal">
-                          <a title="Login" href="{% url "account:login" %}"><span>Ingresar</span></a>
+                          <a title="Login" href="{% url "login" %}"><span>Ingresar</span></a>
                       </div>
                 {% endif %}
           </div>
