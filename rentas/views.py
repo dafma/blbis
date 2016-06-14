@@ -4,18 +4,21 @@ from productos.models import Product
 
 def reservacion(request, pk):
     form = DateRentForm()
-    if form.is_valid():
-        inicio = form.cleaned_data['fecha_inicio']
-        fin = form.cleaned_data['fecha_termino']
-        diasTotales = abs((inicio-fin).days)
-
+    # if request.method == 'POST':
+    #     if form.is_valid():
+    #         inicio = form.cleaned_data['fecha_inicio']
+    #         fin = form.cleaned_data['fecha_termino']
+    #         diasTotales = abs((inicio-fin).days)
+    #         return render(request, 'pago_pos_reservacion.html')
     producto = get_object_or_404(Product,
                                  id=pk,
                                  active=True)
-
     template = "reserva.html"
-    return render(request, template, {"form": form, "prod": producto, }
-                  )
+    context = {
+        "form": form,
+        "prod": producto,
+    }
+    return render(request, template, context)
 
 def despuesfecha(request):
     usuario = request.user

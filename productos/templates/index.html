@@ -32,15 +32,7 @@
   <!-- end header service -->
 
   <!-- offer banner section -->
-  <div class="offer-banner-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-xs-12 col-md-4 col-sm-4 wow"><a href="#"><img alt="offer banner1" src="{% static "images/promo-banner1.jpg" %}"></a></div>
-        <div class="col-lg-4 col-xs-12 col-md-4 col-sm-4 wow"><a href="#"><img alt="offer banner1" src="{% static "images/promo-banner1.jpg" %}"></a></div>
-        <div class="col-lg-4 col-xs-12 col-md-4 col-sm-4 wow"><a href="#"><img alt="offer banner1" src="{% static "images/promo-banner1.jpg" %}"></a></div>
-      </div>
-    </div>
-  </div>
+
   <!-- end offer banner section -->
   <!-- main container -->
   <section class="main-container col1-layout home-content-container">
@@ -57,7 +49,7 @@
                     {% for inmueble in inmuebles %}
                         <div class="item">
                             <div class="col-item">
-                              <div class="sale-label sale-top-right">Sale</div>
+                              <div class="sale-label sale-top-right">rentar</div>
                               <div class="images-container"> <a class="product-image" title="Sample Product" href="{{ inmueble.get_absolute_url }}"> <img src="{{ inmueble.get_image_url }}" class="img-responsive" alt="product-image" /> </a>
                                 <div class="actions">
                                   <div class="actions-inner">
@@ -208,7 +200,7 @@
                   </div>
                   <!--info-inner-->
                   <div class="actions">
-                    <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
+                    <button type="button" title="Add to Cart" class="button btn-cart"><span>Rentar</span></button>
                   </div>
                   <!--actions-->
                   <div class="clearfix"> </div>
@@ -235,10 +227,10 @@
         <div id="recommend-slider" class="product-flexslider hidden-buttons">
           <div class="slider-items slider-width-col3">
             <!-- Item -->
-              {% for inflable in inflables %}
+              {% for prodRecomendacion in prodRecomendaciones %}
                 <div class="item">
               <div class="col-item">
-                <div class="images-container"> <a class="product-image" title="Sample Product" href="{% url 'productos:inflable_detalle' inflable.id %}"> <img src="{{ inflable.foto.url }}" class="img-responsive" alt="a" /> </a>
+                <div class="images-container"> <a class="product-image" title="Sample Product" href="{{ prodRecomendacion.get_absolute_url }}"> <img src="{{ prodRecomendacion.get_image_url }}" class="img-responsive" alt="a" /> </a>
                   <div class="actions">
                     <div class="actions-inner">
                       <ul class="add-to-links">
@@ -247,11 +239,11 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="qv-button-container"> <a href="{{ carro.get_absolute_url }}" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
+                  <div class="qv-button-container"> <a href="{{ prodRecomendacion.get_absolute_url }}" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
                 </div>
                 <div class="info">
                   <div class="info-inner">
-                    <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> {{ inflable.titulo  }}</a> </div>
+                    <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> {{ prodRecomendacion.title  }}</a> </div>
                     <!--item-title-->
                     <div class="item-content">
                       <div class="ratings">
@@ -260,7 +252,7 @@
                         </div>
                       </div>
                       <div class="price-box">
-                        <p class="special-price"> <span class="price"> {{ inflable.precio }}</span> </p>
+                        <p class="special-price"> <span class="price"> {{ prodRecomendacion.precio }}</span> </p>
                         <p class="old-price"> <span class="price-sep">-</span> <span class="price"> $50.00 </span> </p>
                       </div>
                     </div>
@@ -398,7 +390,7 @@
             <!-- Item -->
             <div class="item">
               <div class="col-item">
-                <div class="sale-label sale-top-right">Sale</div>
+                <div class="sale-label sale-top-right">renta</div>
                 <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img alt="a" class="img-responsive" src="{% static "products-images/product1.jpg" %}p"> </a>
                   <div class="actions">
                     <div class="actions-inner">
@@ -479,7 +471,7 @@
             <!-- Item -->
             <div class="item">
               <div class="col-item">
-                <div class="sale-label sale-top-right">Sale</div>
+                <div class="sale-label sale-top-right">renta</div>
                 <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img alt="a" class="img-responsive" src="products-images/product1.jpg"> </a>
                   <div class="actions">
                     <div class="actions-inner">
@@ -518,7 +510,7 @@
             <!-- Item -->
             <div class="item">
               <div class="col-item">
-                <div class="sale-label sale-top-right">Sale</div>
+                <div class="sale-label sale-top-right">renta</div>
                 <div class="images-container"> <a class="product-image" title="Sample Product" href="#"> <img alt="a" class="img-responsive" src=""> </a>
                   <div class="actions">
                     <div class="actions-inner">
@@ -681,19 +673,19 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-              <div class="item active"> <img src="{% static "images/slide1.jpg" %}"alt="slide1">
+              <div class="item active"> <img src="{% static "products-images/seRentaTodo.png" %}"alt="slide1">
                 <div class="carousel-caption">
                   <h3><a href="product_detail.html" title=" Sample Product">Productos mas rentados</a></h3>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus diam arcu.</p>
                 </div>
               </div>
-              <div class="item"> <img src="{% static "images/slide1.jpg" %}" alt="slide2">
+              <div class="item"> <img src="{% static "products-images/seRentaTodo.jpg" %}" alt="slide2">
                 <div class="carousel-caption">
                   <h3><a href="product_detail.html" title=" Sample Product">Summer collection</a></h3>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus diam arcu.</p>
                 </div>
               </div>
-              <div class="item"> <img src="{% static "images/slide1.jpg" %}" alt="slide3">
+              <div class="item"> <img src="{% static "products-images/somos1000.png" %}" alt="slide3">
                 <div class="carousel-caption">
                   <h3><a href="product_detail.html" title=" Sample Product">New Arrivals</a></h3>
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus diam arcu.</p>
@@ -871,314 +863,48 @@
           </div>
           <div id="featured-slider" class="product-flexslider hidden-buttons">
             <div class="slider-items slider-width-col4">
-              <!-- Item -->
-              <div class="item">
-                <div class="col-item">
-                  <div class="sale-label sale-top-right">Sale</div>
-                  <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img src="{% static  "products-images/product1.jpg" %}" class="img-responsive" alt="a" /> </a>
-                    <div class="actions">
-                      <div class="actions-inner">
-                        <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
-                        <ul class="add-to-links">
-                          <li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-                          <li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
-                  </div>
-                  <div class="info">
-                    <div class="info-inner">
-                      <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> Sample Product </a> </div>
-                      <!--item-title-->
-                      <div class="item-content">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div style="width:60%" class="rating"></div>
+                {% for prodInteres in prodIntereses %}
+                    <!-- Item -->
+                    <div class="item">
+                        <div class="col-item">
+                            <div class="sale-label sale-top-right">renta</div>
+                            <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img src="{{ prodInteres.get_image_url }}" class="img-responsive" alt="a" /> </a>
+                            <div class="actions">
+                          <div class="actions-inner">
+                            <button type="button" title="Add to Cart" class="button btn-cart"><span>Rentar</span></button>
+                            <ul class="add-to-links">
+                              <li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
+                              <li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
+                            </ul>
                           </div>
                         </div>
-                        <div class="price-box">
-                          <p class="special-price"> <span class="price"> $45.00 </span> </p>
-                          <p class="old-price"> <span class="price-sep">-</span> <span class="price"> $50.00 </span> </p>
+                            <div class="qv-button-container"> <a href="{{ carro.get_absolute_url }}" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
                         </div>
-                      </div>
-                      <!--item-content-->
-                    </div>
-                    <!--info-inner-->
-
-                    <div class="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="col-item">
-                  <div class="new-label new-top-right">New</div>
-                  <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img src="products-images/product1.jpg" class="img-responsive" alt="a" /> </a>
-                    <div class="actions">
-                      <div class="actions-inner">
-                        <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
-                        <ul class="add-to-links">
-                          <li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-                          <li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
-                  </div>
-                  <div class="info">
-                    <div class="info-inner">
-                      <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> Sample Product </a> </div>
-                      <!--item-title-->
-                      <div class="item-content">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div style="width:60%" class="rating"></div>
+                            <div class="info">
+                        <div class="info-inner">
+                          <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> {{ prodInteres.title }} </a> </div>
+                          <!--item-title-->
+                          <div class="item-content">
+                            <div class="ratings">
+                              <div class="rating-box">
+                                <div style="width:60%" class="rating"></div>
+                              </div>
+                            </div>
+                            <div class="price-box">
+                              <p class="special-price"> <span class="price"> $45.00 </span> </p>
+                              <p class="old-price"> <span class="price-sep">-</span> <span class="price"> $50.00 </span> </p>
+                            </div>
                           </div>
+                          <!--item-content-->
                         </div>
-                        <div class="price-box"> <span class="regular-price"> <span class="price">$422.00</span> </span> </div>
-                      </div>
-                      <!--item-content-->
-                    </div>
-                    <!--info-inner-->
+                        <!--info-inner-->
 
-                    <div class="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="col-item">
-                  <div class="sale-label sale-top-right">Sale</div>
-                  <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img alt="a" class="img-responsive" src="{% static "products-images/product1.jpg" %}"> </a>
-                    <div class="actions">
-                      <div class="actions-inner">
-                        <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
-                        <ul class="add-to-links">
-                          <li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-                          <li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-                        </ul>
+                        <div class="clearfix"> </div>
                       </div>
-                    </div>
-                    <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
-                  </div>
-                  <div class="info">
-                    <div class="info-inner">
-                      <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> Sample Product </a> </div>
-                      <!--item-title-->
-                      <div class="item-content">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div class="rating" style="width:0%"></div>
-                          </div>
                         </div>
-                        <div class="price-box"> <span class="regular-price"> <span class="price">$50.00</span> </span> </div>
-                      </div>
-                      <!--item-content-->
                     </div>
-                    <!--info-inner-->
-
-                    <div class="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="col-item">
-                  <div class="sale-label sale-top-right">Sale</div>
-                  <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img alt="a" class="img-responsive" src="{% static "products-images/product1.jpg" %}"> </a>
-                    <div class="actions">
-                      <div class="actions-inner">
-                        <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
-                        <ul class="add-to-links">
-                          <li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-                          <li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
-                  </div>
-                  <div class="info">
-                    <div class="info-inner">
-                      <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> Sample Product </a> </div>
-                      <!--item-title-->
-                      <div class="item-content">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div class="rating" style="width:50%"></div>
-                          </div>
-                        </div>
-                        <div class="price-box">
-                          <p class="special-price"> <span class="price"> $45.00 </span> </p>
-                          <p class="old-price"> <span class="price-sep">-</span> <span class="price"> $50.00 </span> </p>
-                        </div>
-                      </div>
-                      <!--item-content-->
-                    </div>
-                    <!--info-inner-->
-
-                    <div class="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="col-item">
-                  <div class="sale-label sale-top-right">Sale</div>
-                  <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img alt="a" class="img-responsive" src="{% static "products-images/product1.jpg" %}"> </a>
-                    <div class="actions">
-                      <div class="actions-inner">
-                        <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
-                        <ul class="add-to-links">
-                          <li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-                          <li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
-                  </div>
-                  <div class="info">
-                    <div class="info-inner">
-                      <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> Sample Product </a> </div>
-                      <!--item-title-->
-                      <div class="item-content">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div class="rating" style="width:60%"></div>
-                          </div>
-                        </div>
-                        <div class="price-box">
-                          <p class="special-price"> <span class="price"> $45.00 </span> </p>
-                          <p class="old-price"> <span class="price-sep">-</span> <span class="price"> $50.00 </span> </p>
-                        </div>
-                      </div>
-                      <!--item-content-->
-                    </div>
-                    <!--info-inner-->
-
-                    <div class="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="col-item">
-                  <div class="new-label new-top-right">New</div>
-                  <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img alt="a" class="img-responsive" src="{% static "products-images/product1.jpg" %}"> </a>
-                    <div class="actions">
-                      <div class="actions-inner">
-                        <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
-                        <ul class="add-to-links">
-                          <li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-                          <li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
-                  </div>
-                  <div class="info">
-                    <div class="info-inner">
-                      <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> Sample Product </a> </div>
-                      <!--item-title-->
-                      <div class="item-content">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div class="rating" style="width:60%"></div>
-                          </div>
-                        </div>
-                        <div class="price-box"> <span class="regular-price"> <span class="price">$422.00</span> </span> </div>
-                      </div>
-                      <!--item-content-->
-                    </div>
-                    <!--info-inner-->
-
-                    <div class="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="col-item">
-                  <div class="sale-label sale-top-right">Sale</div>
-                  <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img alt="a" class="img-responsive" src="{% static "products-images/product1.jpg" %}"> </a>
-                    <div class="actions">
-                      <div class="actions-inner">
-                        <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
-                        <ul class="add-to-links">
-                          <li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-                          <li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
-                  </div>
-                  <div class="info">
-                    <div class="info-inner">
-                      <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> Sample Product </a> </div>
-                      <!--item-title-->
-                      <div class="item-content">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div class="rating" style="width:0%"></div>
-                          </div>
-                        </div>
-                        <div class="price-box"> <span class="regular-price"> <span class="price">$50.00</span> </span> </div>
-                      </div>
-                      <!--item-content-->
-                    </div>
-                    <!--info-inner-->
-
-                    <div class="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Item -->
-              <!-- Item -->
-              <div class="item">
-                <div class="col-item">
-                  <div class="sale-label sale-top-right">Sale</div>
-                  <div class="images-container"> <a class="product-image" title="Sample Product" href="product_detail.html"> <img alt="a" class="img-responsive" src="{% static "products-images/product1.jpg" %}"> </a>
-                    <div class="actions">
-                      <div class="actions-inner">
-                        <button type="button" title="Add to Cart" class="button btn-cart"><span>Add to Cart</span></button>
-                        <ul class="add-to-links">
-                          <li><a href="#" title="Add to Wishlist" class="link-wishlist"><span>Add to Wishlist</span></a></li>
-                          <li><a href="#" title="Add to Compare" class="link-compare "><span>Add to Compare</span></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="qv-button-container"> <a href="quick_view.html" class="qv-e-button btn-quickview-1"><span><span>Quick View</span></span></a> </div>
-                  </div>
-                  <div class="info">
-                    <div class="info-inner">
-                      <div class="item-title"> <a title=" Sample Product" href="product_detail.html"> Sample Product </a> </div>
-                      <!--item-title-->
-                      <div class="item-content">
-                        <div class="ratings">
-                          <div class="rating-box">
-                            <div class="rating" style="width:50%"></div>
-                          </div>
-                        </div>
-                        <div class="price-box">
-                          <p class="special-price"> <span class="price"> $45.00 </span> </p>
-                          <p class="old-price"> <span class="price-sep">-</span> <span class="price"> $50.00 </span> </p>
-                        </div>
-                      </div>
-                      <!--item-content-->
-                    </div>
-                    <!--info-inner-->
-
-                    <div class="clearfix"> </div>
-                  </div>
-                </div>
-              </div>
-              <!-- End Item -->
+                    <!-- End Item -->
+                {% endfor %}
             </div>
           </div>
         </div>

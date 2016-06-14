@@ -22,6 +22,3 @@ class DateRentForm(forms.Form):
     fecha_termino = forms.DateField(
         widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control', })
     ),
-    producto = forms.IntegerField(
-      widget=forms.NumberInput(attrs={'type':'hidden'})
-    ),

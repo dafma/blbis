@@ -67,21 +67,21 @@
           <div class="top-cart-contain">
             <div class="mini-cart">
                 {% if request.user.is_authenticated %}
-                                       <div id="select-dropdown" class="closed">
+                    <div id="select-dropdown" class="closed">
                     <div id="select-default" class="select default">Opciones</div>
                     <div class="select option" data-id="hexpound"><a href="{% url 'miPerfil:publicar' %}"> Publicar</a></div>
                     <div class="select option" data-id="hexpound"><a href="{% url 'miPerfil:productos_rentados' %}"> Productos que he rentado</a></div>
                     <div class="select option" data-id="hexclean"><a href="{% url 'miPerfil:mis_productos' %}">Mis Productos para Rentar</a></div>
                     <div class="select option" data-id="rgb"><a href="{% url 'miPerfil:mis_favoritos' %}"> Mis favoritos</a></div>
                     <div class="select option" data-id="rgba"><a href="{% url 'logout' %}"> Salir</a></div>
-                        </div>
-                            </div>
-                            <div id="ajaxconfig_info" style="display:none"> <a href="#/"></a>
-                              <input value="" type="hidden">
-                              <input id="enable_module" value="1" type="hidden">
-                              <input class="effect_to_cart" value="1" type="hidden">
-                              <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
-                            </div>
+                    </div>
+                    </div>
+                    <div id="ajaxconfig_info" style="display:none"> <a href="#/"></a>
+                        <input value="" type="hidden">
+                        <input id="enable_module" value="1" type="hidden">
+                        <input class="effect_to_cart" value="1" type="hidden">
+                        <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
+                    </div>
                 </div>
                 {% endif %}
 
@@ -116,9 +116,6 @@
     <li class="fb"><a href="#"></a></li>
     <li class="tw"><a href="#"></a></li>
     <li class="googleplus"><a href="#"></a></li>
-    <li class="rss"><a href="#"></a></li>
-    <li class="pintrest"><a href="#"></a></li>
-    <li class="linkedin"><a href="#"></a></li>
     <li class="youtube"><a href="#"></a></li>
   </ul>
 </div>

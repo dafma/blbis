@@ -40,9 +40,9 @@
             <p><strong>Seleccione cuidadosamente la fecha de inicio y de termino de la renta.</strong></p>
                 <div class="form-group">
                     <form action="" method="post">
-                    {% csrf_token %}
+                        {% csrf_token %}
                         <div class="input-group date" id="datetimepicker1">
-                            {{ form.fecha_termino }}
+                            {{ form.fecha_inicio }}
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -54,7 +54,6 @@
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                         </div>
-                        {{ form.producto }}
                     </form>
                 </div>
               <input type="submit" value="Enviar"/>

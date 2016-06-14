@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'miperfil',
     'rentas',
     'disqus',
+    'blog'
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

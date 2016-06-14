@@ -11,11 +11,17 @@ def index(request):
     prodInmuebles = Product.objects.filter(categories__title="Inmuebles")
     # ultimos productos solo da 4
     ultimosProductos = Product.objects.all()[:5]
+    # productos que quiza te interesen
+    prodIntereses = Product.objects.order_by('?')[:8]
+    # recomendaciones
+    prodRecomendaciones = Product.objects.order_by('?')[:8]
     context = {
         "inmuebles": prodInmuebles,
         "ultimosProductos": ultimosProductos,
         'prodCarros': prodCarros,
         "prodFiestas": prodFiestas,
+        "prodIntereses": prodIntereses,
+        "prodRecomendaciones": prodRecomendaciones,
     }
     return render(request, 'index.html',  context)
 
