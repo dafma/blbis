@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
+from blog.models import Post
 
 # Create your views here.
 def index(request):
@@ -15,6 +16,10 @@ def index(request):
     prodIntereses = Product.objects.order_by('?')[:8]
     # recomendaciones
     prodRecomendaciones = Product.objects.order_by('?')[:8]
+
+    # nlog ultimas 3
+    ultimasTresEntradas = Post.objects.all()[:3]
+
     context = {
         "inmuebles": prodInmuebles,
         "ultimosProductos": ultimosProductos,
@@ -22,6 +27,7 @@ def index(request):
         "prodFiestas": prodFiestas,
         "prodIntereses": prodIntereses,
         "prodRecomendaciones": prodRecomendaciones,
+        "ultimas3Entradas": ultimasTresEntradas,
     }
     return render(request, 'index.html',  context)
 
