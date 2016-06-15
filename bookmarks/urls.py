@@ -11,8 +11,16 @@ urlpatterns = [
     url(r'^mi_perfil/', include('miperfil.urls', namespace="miPerfil")),
     url(r'^productos/', include('productos.urls', namespace="productos")),
     url(r'^rentar/', include('rentas.urls', namespace="rentas")),
+
+
+    # blog
+
+
+    url(r'blog/', include('blog.urls', namespace='blog')),
+
     # python-social-auth
     url('social-auth/', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^markdown/', include('django_markdown.urls')),
 ]
 
 if settings.DEBUG:

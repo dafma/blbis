@@ -39,12 +39,19 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social.apps.django_app.default',
     'productos',
     'miperfil',
     'rentas',
+
+    'blog',
+
+
+    # 3rd party app
+    'django_markdown',
+    'django_social_share',
+    'taggit',
     'disqus',
-    'blog'
+    'social.apps.django_app.default',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
