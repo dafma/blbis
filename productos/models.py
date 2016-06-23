@@ -34,6 +34,7 @@ class Product(models.Model):
     categories = models.ManyToManyField('Category', blank=True)
     default = models.ForeignKey('Category', related_name='default_category', null=True, blank=True)
     slug = models.SlugField(max_length=200, db_index=True)
+    num_contacto = models.CharField(max_length=14,default='1234567890')
 
     objects = ProductManager()
 
@@ -55,7 +56,7 @@ class Product(models.Model):
 
 
 
-# variations od products example: 16gb, 12gb, 8gb
+# variations od productos example: 16gb, 12gb, 8gb
 
 class Variation(models.Model):
     product = models.ForeignKey(Product)
@@ -113,7 +114,7 @@ def image_upload_to(instance, filename):
     slug = slugify(title)
     file_extension = filename.split(".")
     new_filename = "%s-%s.%s" % (slug, instance.id, file_extension)
-    return "products/%s/%s" % (slug, new_filename)
+    return "productos/%s/%s" % (slug, new_filename)
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product)
@@ -142,7 +143,7 @@ def image_upload_to_feature(instance, filename):
     slug = slugify(title)
     basename, file_extension = filename.split(".")
     new_filename = "%s-%s.%s" % (slug, instance.id, file_extension)
-    return "products/%s/featured/%s" % (slug, new_filename)
+    return "productos/%s/featured/%s" % (slug, new_filename)
 
 class ProductFeatured(models.Model):
     product = models.ForeignKey(Product)

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block contenido %}
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            <h2> ¿Estás seguro que deseas borrar el curso "{{ object }}"? </h2>
+            <input type="submit" value="Submit" class=" btn btn-default btn-lg" />
+        </form>
+    </div>
+
+{% endblock %}

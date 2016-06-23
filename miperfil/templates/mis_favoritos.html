@@ -22,7 +22,7 @@
                           <th class="customer-wishlist-item-quantity">Cantidad</th>
                           <th class="customer-wishlist-item-price">Precio</th>
                           <th class="customer-wishlist-item-cart"></th>
-                          <th class="customer-wishlist-item-remove"></th>
+                          <th class="customer-wishlist-item-remove">Eliminar</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -33,7 +33,6 @@
                             <div class="description std">
                               <div class="inner">{{ mprod.description }}</div>
                             </div>
-                            <textarea title="Comment" onblur="focusComment(this)" onfocus="focusComment(this)" cols="5" rows="3" name="description[31]" style="height: 120px; width: 96%;"></textarea></td>
                           <td data-rwd-label="Quantity" class="wishlist-cell2 customer-wishlist-item-quantity"><div class="cart-cell">
                               <div class="add-to-cart-alt">
                                 <input type="text" value="1" name="qty[31]" class="input-text qty validate-not-negative-number" pattern="\d*">
@@ -46,7 +45,12 @@
                               <button class="button btn-cart" onclick="addWItemToCart(31);" title="Add to Cart" type="button"><span><span>Editar</span></span></button>
                             </div>
                           </td>
-                          <td class="wishlist-cell5 customer-wishlist-item-remove last"><a class="remove-item" title="Clear Cart"  href="#"><span>Eliminar<span></span></span></a></td>
+                          <td class="wishlist-cell5 customer-wishlist-item-remove last">
+                              <a class="remove-item" title="Clear Cart"  href="{% url 'miPerfil:favoritos_eliminar' mprod.id %}">
+                              <button class="remove-item">
+                                  <span>Eliminar<span></span></span>
+                              </button>
+                              </a></td>
                         </tr>
                       {% endfor %}
                       </tbody>

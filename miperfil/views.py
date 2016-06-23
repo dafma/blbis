@@ -4,6 +4,8 @@ from .forms import CrearProdForm
 from productos.models import Product
 from django.contrib.auth.models import User
 from .models import Misfavoritos
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 
 # Create your views here.
 
@@ -69,3 +71,17 @@ def servicios(request):
 
 def transporte(request):
     return render(request)
+
+class MiproductoUpdate(UpdateView):
+    model = Product
+    success_url = reverse_lazy('miPerfil:mis_productos')
+    fields = ['title', 'description', 'price', 'active', 'num_contacto']
+
+
+class MiproductoDelete(DeleteView):
+    model = Product
+    success_url = reverse_lazy('miPerfil:mis_productos')
+
+class MisFavoritosDelete(DeleteView):
+    model = Misfavoritos
+    success_url = reverse_lazy('miPerfil:mis_favoritos')

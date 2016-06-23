@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 
 {% block contenido %}
-
-    {% for mprod in misproductos %}
-        {{ mprod }}
-    {% endfor %}
     <div class="main-container col2-right-layout">
     <div class="main container">
       <div class="row">
@@ -32,12 +28,12 @@
                       <tbody>
                       {% for  mprod in misproductos %}
                         <tr id="item_31" class="first odd">
-                          <td class="wishlist-cell0 customer-wishlist-item-image"><a title="Softwear Women's Designer" href="#/" class="product-image"> <img width="150" alt="Softwear Women's Designer" src="{{ mprod.get_image_url }}"> </a></td>
+                          <td class="wishlist-cell0 customer-wishlist-item-image"><a title="Softwear Women's Designer" href="#/" class="product-image"> <img width="150" alt="" src="{{ mprod.get_image_url }}"> </a></td>
                           <td class="wishlist-cell1 customer-wishlist-item-info"><h2 class="product-name"><a title="Softwear Women's Designer" href="#">{{ mprod.title }}</a></h2>
                             <div class="description std">
                               <div class="inner">{{ mprod.description }}</div>
                             </div>
-                            <textarea title="Comment" onblur="focusComment(this)" onfocus="focusComment(this)" cols="5" rows="3" name="description[31]" style="height: 120px; width: 96%;"></textarea></td>
+                          </td>
                           <td data-rwd-label="Quantity" class="wishlist-cell2 customer-wishlist-item-quantity"><div class="cart-cell">
                               <div class="add-to-cart-alt">
                                 <input type="text" value="1" name="qty[31]" class="input-text qty validate-not-negative-number" pattern="\d*">
@@ -47,10 +43,19 @@
                               <div class="price-box"> <span id="product-price-39" class="regular-price"> <span class="price">{{ mprod.price }}</span> </span> </div>
                             </div></td>
                           <td class="wishlist-cell4 customer-wishlist-item-cart"><div class="cart-cell">
-                              <button class="button btn-cart" onclick="addWItemToCart(31);" title="Editar" type="button"><span><span>Editar</span></span></button>
+                              <a href="{% url 'miPerfil:producto_edit' mprod.id %}">
+                                <button class="button btn-cart"  type="button"><span><span>Editar</span></span></button>
+                              </a>
                             </div>
                           </td>
-                          <td class="wishlist-cell5 customer-wishlist-item-remove last"><a class="remove-item" title="Eliminar"  href="#"><span>Eliminar<span></span></span></a></td>
+                          <td class="wishlist-cell5 customer-wishlist-item-remove last">
+                              <a title="Eliminar"  href="{% url 'miPerfil:producto_eliminar' mprod.id %}">
+                                  <button class="remove-item" type="button">
+                                      <span>Eliminar<span></span></span>
+                                  </button>
+
+                              </a>
+                          </td>
                         </tr>
                       {% endfor %}
                       </tbody>

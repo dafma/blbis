@@ -6,9 +6,9 @@ class CrearProdForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('title', 'description', 'price', 'categories')
-        widgets= {
+        widgets = {
             "title": forms.TextInput(attrs={'class': 'input-text'}),
-            "description": forms.Textarea(attrs={'class':'input-text'}),
+            "description": forms.Textarea(attrs={'class': 'input-text'}),
             "price": forms.TextInput(attrs={'class': 'input-text'}),
 
         }

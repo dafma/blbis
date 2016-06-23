@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from .forms import ReservacionForm, DateRentForm
+from .forms import ReservacionForm, DateRentaForm
 from productos.models import Product
 
 def reservacion(request, pk):
-    form = DateRentForm()
+    formr = DateRentaForm()
     # if request.method == 'POST':
     #     if form.is_valid():
     #         inicio = form.cleaned_data['fecha_inicio']
@@ -15,7 +15,7 @@ def reservacion(request, pk):
                                  active=True)
     template = "reserva.html"
     context = {
-        "form": form,
+        "formr": formr,
         "prod": producto,
     }
     return render(request, template, context)

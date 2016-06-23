@@ -15,10 +15,8 @@ class ReservacionForm(forms.ModelForm):
         }
 
 
-class DateRentForm(forms.Form):
-    fecha_inicio = forms.DateField(
-        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control', })
-    ),
-    fecha_termino = forms.DateField(
-        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control', })
-    ),
+class DateRentaForm(forms.Form):
+    inicio = forms.DateField(widget=forms.DateInput()),
+    # termino = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control', })),
+
+
