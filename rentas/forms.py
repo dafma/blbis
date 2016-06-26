@@ -8,7 +8,7 @@ from .models import Reservacion
 class ReservacionForm(forms.ModelForm):
     class Meta:
         model = Reservacion
-        fields = ('fecha_inicio', 'fecha_termino', 'producto','tyc', )
+        fields = ('fecha_inicio', 'fecha_termino','tyc', )
         widgets = {
             'fecha_inicio': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
             'fecha_termino': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
