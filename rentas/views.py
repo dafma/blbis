@@ -3,13 +3,13 @@ from .forms import ReservacionForm, DateRentaForm
 from productos.models import Product
 
 def reservacion(request, pk):
-    formr = DateRentaForm()
-    # if request.method == 'POST':
-    #     if form.is_valid():
-    #         inicio = form.cleaned_data['fecha_inicio']
-    #         fin = form.cleaned_data['fecha_termino']
-    #         diasTotales = abs((inicio-fin).days)
-    #         return render(request, 'pago_pos_reservacion.html')
+    formr = ReservacionForm()
+    if request.method == 'POST':
+        if formr.is_valid():
+            inicio = formr.cleaned_data['fecha_inicio']
+            fin = formr.cleaned_data['fecha_termino']
+            diasTotales = abs((inicio-fin).days)
+            return render(request, 'pago_pos_reservacion.html')
     producto = get_object_or_404(Product,
                                  id=pk,
                                  active=True)

@@ -21,6 +21,9 @@ urlpatterns = [
     # python-social-auth
     url('social-auth/', include('social.apps.django_app.urls', namespace='social')),
     url(r'^markdown/', include('django_markdown.urls')),
+
+    # tirt partys
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
 ]
 
 if settings.DEBUG:

@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+{% load ratings %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+{% endblock %}
 {% block contenido %}
 
   <section class="main-container col1-layout">
@@ -30,6 +36,7 @@
                   <div class="ratings">
                     <div class="rating-box">
                       <div style="width:60%" class="rating"></div>
+
                     </div>
                     <p class="rating-links"> <a href="#">1 Calificaciones(s)</a> <span class="separator">|</span> <a href="#">Caifica el producto</a> </p>
                   </div>

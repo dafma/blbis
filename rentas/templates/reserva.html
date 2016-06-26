@@ -42,17 +42,22 @@
                     <form action="" method="post">
                         {% csrf_token %}
                         <div class="input-group date" id="datetimepicker1">
-                            {{ formr.inicio }}
+                            {{ formr.fecha_inicio }}
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                         </div>
                         <hr/>
                         <div class="input-group date" id="datetimepicker2">
-                            {{ formr.termino }}
+                            {{ formr.fecha_termino }}
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </span>
+                        </div>
+                        <div class="input-group date" id="datetimepicker2">
+                            <label for="">Terminos y condiciones</label>
+                            -----{{ formr.tyc}}
+
                         </div>
                     </form>
                 </div>

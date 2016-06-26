@@ -47,6 +47,7 @@ INSTALLED_APPS = (
 
 
     # 3rd party app
+    'star_ratings',
     'django_markdown',
     'django_social_share',
     'taggit',

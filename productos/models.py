@@ -8,6 +8,7 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 
+
 class ProductQuerySet(models.query.QuerySet):
     def active(self):
         return self.filter(active=True)
@@ -35,6 +36,7 @@ class Product(models.Model):
     default = models.ForeignKey('Category', related_name='default_category', null=True, blank=True)
     slug = models.SlugField(max_length=200, db_index=True)
     num_contacto = models.CharField(max_length=14,default='1234567890')
+
 
     objects = ProductManager()
 
