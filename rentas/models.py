@@ -9,7 +9,7 @@ class Reservacion(models.Model):
     fecha_termino = models.DateField()
     producto = models.ForeignKey(Product)
     renta_pendiente = models.BooleanField()
-    tyc = models.BooleanField('Terminos y condiciones',default=False)
+    tyc = models.BooleanField('Terminos y condiciones',)
 
     class Meta:
         verbose_name = "Reservaciones"

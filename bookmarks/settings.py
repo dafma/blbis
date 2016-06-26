@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'taggit',
     'disqus',
     'social.apps.django_app.default',
+    'debug_toolbar',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
