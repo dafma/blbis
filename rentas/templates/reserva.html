@@ -55,9 +55,9 @@
                             </span>
                         </div>
                         <div class="input-group" >
-                            <label for="">Terminos y condiciones</label>
-                            -----{{ formr.tyc}}
-                            <input type="text" value="{{ prod.id }}" name="productoid"/>
+                            <label for="">Terminos y condiciones:  </label>
+                            {{ formr.tyc}}
+                            <input type="hidden" value="{{ prod.id }}" name="productoid"/>
                         </div>
                         <input type="submit" value="Enviar"/>
                     </form>

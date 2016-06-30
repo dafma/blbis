@@ -10,10 +10,10 @@ urlpatterns = [
 
 
     # todos los productos categorias
-    url(r'^productos/$', views.producto_detalle, name='productos'),
-    url(r'^servicios/$', views.producto_detalle, name='servicios'),
-    url(r'^inmuebles/$', views.producto_detalle, name='inmuebles'),
-    url(r'^transporte/$', views.producto_detalle, name='transporte'),
+    url(r'^productos/$', views.producto, name='producto'),
+    url(r'^servicios/$', views.servicios, name='servicios'),
+    url(r'^inmuebles/$', views.inmuebles, name='inmuebles'),
+    url(r'^transporte/$', views.transporte, name='transporte'),
 
 
 ]

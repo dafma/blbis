@@ -36,3 +36,32 @@ def producto_detalle(request, pk):
                                  id=pk,
                                  active=True)
     return render(request, 'detalle_product.html', {'producto': producto, })
+
+
+def producto(requets):
+    prod = Product.objects.filter(categories__title="Inmuebles")
+    context = {
+        "prod":prod,
+    }
+    return render(requets, 'categorias_productos/productos.html')
+
+def servicios(requets):
+    prod= Product.objects.filter(categories__title="fiestas")
+    context = {
+        "prod":prod,
+    }
+    return render(requets, 'categorias_productos/servicios.html', context)
+
+def inmuebles(requets):
+    prod = Product.objects.filter(categories__title="Inmuebles")
+    context = {
+        "prod":prod,
+    }
+    return render(requets, 'categorias_productos/inmuebles.html', context)
+
+def transporte(requets):
+    prod= Product.objects.filter(categories__title="carros")
+    context = {
+        "prod":prod,
+    }
+    return render(requets, 'categorias_productos/transporte.html', context)
