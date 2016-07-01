@@ -65,3 +65,19 @@ def transporte(requets):
         "prod":prod,
     }
     return render(requets, 'categorias_productos/transporte.html', context)
+
+
+
+def search_productt(request):
+    try:
+        q = request.GET.get('q')
+    except:
+        q = None
+    if q:
+        products = Product.objects.filter(title__icontains=q)
+        context = {'query': q, 'products':products}
+        template = 'busqueda/busqueda.html'
+    else:
+        context = {}
+        template = 'busqueda/busqueda.html'
+    return render(request, template, context)

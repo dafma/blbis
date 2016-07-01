@@ -12,7 +12,8 @@ urlpatterns = [
     url(r'^productos/', include('productos.urls', namespace="productos")),
     url(r'^rentar/', include('rentas.urls', namespace="rentas")),
 
-
+    # busqueda
+    url(r'^s/','productos.views.search_productt', name='search_productt'),
     # blog
 
 
