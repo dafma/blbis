@@ -10,8 +10,8 @@ class ReservacionForm(forms.ModelForm):
         model = Reservacion
         fields = ('fecha_inicio', 'fecha_termino','tyc', )
         widgets = {
-            'fecha_inicio': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
-            'fecha_termino': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'fecha_inicio': forms.DateInput(attrs={'type': 'text', 'class': 'form-control', 'id': 'datepicker1'}),
+            'fecha_termino': forms.DateInput(attrs={'type': 'text', 'class': 'form-control', 'id': 'datepicker2'}),
             'tyc': forms.CheckboxInput(attrs={'required':'true',})
 
         }
