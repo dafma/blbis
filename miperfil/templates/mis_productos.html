@@ -33,7 +33,7 @@
                                   {% if mprod.get_image_url %}
                                             <img width="150" alt="" src="{{ mprod.get_image_url }}">
                                   {% else %}
-                                      <a href="{% url 'miPerfil:add_image' %}">agregar imagen</a>
+                                      <a href="{% url 'miPerfil:add_image' %}" class="btn btn-info">agregar imagen</a>
                                   {% endif %}
 
                               </a>
@@ -62,7 +62,6 @@
                                   <button class="remove-item" type="button">
                                       <span>Eliminar<span></span></span>
                                   </button>
-
                               </a>
                           </td>
                         </tr>
