@@ -56,8 +56,6 @@ class Product(models.Model):
             return img.image.url
         return img
 
-
-
 # variations od productos example: 16gb, 12gb, 8gb
 
 class Variation(models.Model):

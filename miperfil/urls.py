@@ -5,6 +5,7 @@ from .views import (
  MiproductoUpdate,
 MiproductoDelete,
 MisFavoritosDelete,
+imagenCreate,
 )
 
 
@@ -16,6 +17,7 @@ urlpatterns = [
     url(r'^mis_productos/editar/(?P<pk>\d+)$', MiproductoUpdate.as_view(), name='producto_edit'),
     url(r'^mis_productos/eliminar/(?P<pk>\d+)$', MiproductoDelete.as_view(), name='producto_eliminar'),
     url(r'^productos_rentados/$', views.productos_rentados, name='productos_rentados'),
+    url(r'^add_image/$', imagenCreate.as_view(), name='add_image'),
 
     url(r'^publicar/$', views.publica, name='publicar'),
 

@@ -1,10 +1,11 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import CrearProdForm
-from productos.models import Product
+from productos.models import Product, ProductImage
 from django.contrib.auth.models import User
 from .models import Misfavoritos
 from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView
+from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse_lazy
 
 # Create your views here.
@@ -85,3 +86,9 @@ class MiproductoDelete(DeleteView):
 class MisFavoritosDelete(DeleteView):
     model = Misfavoritos
     success_url = reverse_lazy('miPerfil:mis_favoritos')
+
+class imagenCreate(CreateView):
+    model = ProductImage
+    template_name = "productos_publicados/add_imagen.html"
+    fields = ("product", "image")
+    success_url = reverse_lazy('miPerfil:mis_productos')

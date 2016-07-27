@@ -28,7 +28,16 @@
                       <tbody>
                       {% for  mprod in misproductos %}
                         <tr id="item_31" class="first odd">
-                          <td class="wishlist-cell0 customer-wishlist-item-image"><a title="Softwear Women's Designer" href="#/" class="product-image"> <img width="150" alt="" src="{{ mprod.get_image_url }}"> </a></td>
+                          <td class="wishlist-cell0 customer-wishlist-item-image">
+                              <a title="Softwear Women's Designer" href="#/" class="product-image">
+                                  {% if mprod.get_image_url %}
+                                            <img width="150" alt="" src="{{ mprod.get_image_url }}">
+                                  {% else %}
+                                      <a href="{% url 'miPerfil:add_image' %}">agregar imagen</a>
+                                  {% endif %}
+
+                              </a>
+                          </td>
                           <td class="wishlist-cell1 customer-wishlist-item-info"><h2 class="product-name"><a title="Softwear Women's Designer" href="#">{{ mprod.title }}</a></h2>
                             <div class="description std">
                               <div class="inner">{{ mprod.description }}</div>
