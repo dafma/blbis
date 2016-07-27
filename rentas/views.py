@@ -3,6 +3,13 @@ from .forms import ReservacionForm, DateRentaForm
 from productos.models import Product
 from django.http import HttpResponse
 
+
+from decimal import Decimal
+from django.conf import settings
+from django.core.urlresolvers import reverse
+from django.shortcuts import render, get_object_or_404
+from paypal.standard.forms import PayPalPaymentsForm
+
 def reservacion(request, pk):
     form = ReservacionForm()
     if request.method == 'POST':
@@ -41,3 +48,6 @@ def despuesfecha(request):
         reseracion_form = ReservacionForm(request.POST)
     return render(request, 'pago_pos_reservacion.html', {})
 
+
+def payment_process(request):
+    pass

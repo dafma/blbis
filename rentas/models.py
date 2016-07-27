@@ -17,3 +17,7 @@ class Reservacion(models.Model):
 
     def __str__(self):
         return self.cliente.username
+
+    def get_total_cost(self):
+        total_cost = sum()
+        return self.producto.price

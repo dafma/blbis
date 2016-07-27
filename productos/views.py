@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
 from blog.models import Post
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -74,7 +75,7 @@ def search_productt(request):
     except:
         q = None
     if q:
-        products = Product.objects.filter(title__icontains=q)
+        products = Product.objects.filter(Q(title__icontains=q)|Q(price__icontains=q))
         context = {'query': q, 'products':products}
         template = 'busqueda/busqueda.html'
     else:

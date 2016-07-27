@@ -25,6 +25,7 @@ urlpatterns = [
 
     # tirt partys
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
+    url(r'^paypal/', include('paypal.standard.ipn.urls')),
 ]
 
 if settings.DEBUG:

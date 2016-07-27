@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'disqus',
     'social.apps.django_app.default',
     'debug_toolbar',
+    'paypal.standard.ipn',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -151,3 +152,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '6awUotnxUvCnRi3gIk5th6PL'
 
 DISQUS_API_KEY = 'p7oKQ2Z9yGc8sCtcof4IM2hqsOCoMtbu9BONqi1W7kxPdjyWLRY9ezwUXWtxyXSN'
 DISQUS_WEBSITE_SHORTNAME = 'SeRentaTodo'
+
+
+PAYPAL_RECEIVER_EMAIL = ''
+PAYPAL_TEST = True

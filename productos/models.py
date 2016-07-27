@@ -30,7 +30,7 @@ class Product(models.Model):
     usuario = models.ForeignKey(User)
     title = models.CharField("titulo", max_length=120)
     description = models.TextField("descripción", blank=True, null=True)
-    price = models.DecimalField("precio", max_digits=10, decimal_places=2)
+    price = models.DecimalField("precio por dia", max_digits=10, decimal_places=2)
     active = models.BooleanField("activo", default=True)
     categories = models.ManyToManyField('Category', blank=True)
     default = models.ForeignKey('Category', related_name='default_category', null=True, blank=True)
