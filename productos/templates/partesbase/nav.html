@@ -15,30 +15,28 @@
               <ul style="display:none;" class="submenu">
                 <li>
                   <ul class="topnav">
-                    <li class="level0 nav-6 level-top first parent"> <a class="level-top" href="/"> <span>Inicio</span> </a>
-                      <ul class="level0">
-                        <li class="level1"><a href="index.html"><span>Fashion Store</span></a> </li>
-                      </ul>
-                    </li>
-                    <li class="level0 nav-6 level-top"> <a class="level-top" href="#"> <span>Productos </span> </a>
-                      <ul class="level0">
-                        <li class="level1 first"><a href="grid.html"><span>Grid</span></a></li>
-                        <li class="level1 first parent"><a href="checkout.html"><span>Checkout</span></a>
-                          <ul class="level2">
-                            <li class="level2 nav-2-1-1 first"><a href="checkout_method.html"><span>Checkout Method</span></a></li>
-                          </ul>
+                      {% if request.user.is_authenticated %}
+                        <li class="level0 parent drop-menu"><a href="#" class="active"><span>Opciones</span></a>
+                            <ul class="level1">
+                                <li class="level1 first"><a href="{% url 'miPerfil:publicar' %}" class="active"><span>Publicar</span></a></li>
+                                <li class="level1 nav-10-2"> <a href="{% url 'miPerfil:productos_rentados' %}"> <span>Historial de rentas</span> </a> </li>
+                                <li class="level1 nav-10-2"> <a href="{% url 'miPerfil:mis_productos' %}"> <span>Productos para rentar</span> </a> </li>
+                                <li class="level1 nav-10-2"> <a href="{% url 'miPerfil:mis_favoritos' %}"> <span>Mis favoritos</span> </a> </li>
+                                <li class="level1 nav-10-2"> <a href="{% url 'logout' %}"> <span>Salir</span> </a> </li>
+                            </ul>
                         </li>
-                        <li class="level1 nav-10-4"> <a href="wishlist.html"> <span>Wishlist</span> </a> </li>
-                      </ul>
+                      {% endif %}
+                    <li class="level0 nav-6 level-top first parent"> <a class="level-top" href="/"> <span>Inicio</span> </a>
                     </li>
-                    <li class="level0 nav-7 level-top parent"> <a class="level-top" href="grid.html"> <span>Fashion</span> </a> </li>
-
-                    <li class="level0 parent drop-menu"><a href="blog.html"><span>Blog</span> </a>
-                      <ul class="level1">
-                        <li class="level1 first"><a href="blog_posts_table_view.html"><span>Table View</span></a></li>
-                      </ul>
+                    <li class="level0 nav-6 level-top"> <a class="level-top" href="{% url "productos:producto" %}"> <span>Productos </span> </a>
                     </li>
-                    <li class="level0 nav-9 level-top last parent "> <a class="level-top" href="contact.html"> <span>Contact</span> </a> </li>
+                    <li class="level0 nav-7 level-top parent"> <a class="level-top" href="{% url "productos:servicios" %}"> <span>Servicios</span> </a> </li>
+                    <li class="level0 parent drop-menu"><a href="{% url "productos:inmuebles" %}"><span>Inmueble</span> </a>
+{#                      <ul class="level1">#}
+{#                        <li class="level1 first"><a href="blog_posts_table_view.html"><span>Table View</span></a></li>#}
+{#                      </ul>#}
+                    </li>
+                    <li class="level0 nav-9 level-top last parent "> <a class="level-top" href="{% url "productos:transporte" %}"> <span>Transporte</span> </a> </li>
                   </ul>
                 </li>
               </ul>
