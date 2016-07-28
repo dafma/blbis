@@ -7,10 +7,10 @@ from .models import Misfavoritos
 from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView
 from django.views.generic.edit import FormView
 from django.core.urlresolvers import reverse_lazy
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required
 def mis_favoritos(request):
     usuario = request.user
     misFavoritos = Misfavoritos.objects.filter(usuario=usuario)
@@ -19,6 +19,7 @@ def mis_favoritos(request):
     }
     return render(request, 'mis_favoritos.html', context)
 
+@login_required
 def mis_productos(request):
     usuario = request.user
     misproductos = Product.objects.filter(usuario=usuario)
@@ -27,10 +28,11 @@ def mis_productos(request):
     }
     return render(request, 'mis_productos.html', context)
 
+@login_required
 def productos_rentados(request):
     return render(request, 'productos_rentados.html')
 
-
+@login_required
 def publica(request):
     usuario = request.user
     if request.method == 'POST':
@@ -73,20 +75,23 @@ def servicios(request):
 def transporte(request):
     return render(request)
 
+@login_required
 class MiproductoUpdate(UpdateView):
     model = Product
     success_url = reverse_lazy('miPerfil:mis_productos')
     fields = ['title', 'description', 'price', 'active', 'num_contacto']
 
-
+@login_required
 class MiproductoDelete(DeleteView):
     model = Product
     success_url = reverse_lazy('miPerfil:mis_productos')
 
+@login_required
 class MisFavoritosDelete(DeleteView):
     model = Misfavoritos
     success_url = reverse_lazy('miPerfil:mis_favoritos')
 
+@login_required
 class imagenCreate(CreateView):
     model = ProductImage
     template_name = "productos_publicados/add_imagen.html"
