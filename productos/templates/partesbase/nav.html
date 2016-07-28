@@ -49,7 +49,7 @@
         <!--End mobile-menu -->
         <a class="logo-small" title="Magento Commerce" href="index.html"><img alt="Magento Commerce" src="{% static "images/logo-srt.png" %}"></a>
         <ul id="nav" class="hidden-xs">
-          <li class="level0 parent drop-menu"><a href="/" class="active"><span>Inicio</span> </a>
+          <li class="level0 parent drop-menu"><a href="/"><span>Inicio</span> </a>
           </li>
           <li class="level0 parent drop-menu"><a href="{% url "productos:producto" %}"><span>Productos</span> </a>
             <ul class="level1">
@@ -66,26 +66,17 @@
           </li>
           <li class="level0 parent drop-menu"><a href="blog.html"><span>Blog</span> </a>
           </li>
-          <li class="nav-custom-link level0 level-top parent">
-              {% if request.user.is_authenticated %}
-                    <div id="select-dropdown" class="closed">
-                    <div id="select-default" class="select default">Opciones</div>
-                    <div class="select option" data-id="hexpound"><a href="{% url 'miPerfil:publicar' %}"> Publicar</a></div>
-                    <div class="select option" data-id="hexpound"><a href="{% url 'miPerfil:productos_rentados' %}"> Productos que he rentado</a></div>
-                    <div class="select option" data-id="hexclean"><a href="{% url 'miPerfil:mis_productos' %}">Mis Productos para Rentar</a></div>
-                    <div class="select option" data-id="rgb"><a href="{% url 'miPerfil:mis_favoritos' %}"> Mis favoritos</a></div>
-                    <div class="select option" data-id="rgba"><a href="{% url 'logout' %}"> Salir</a></div>
-                    </div>
-                    </div>
-                    <div id="ajaxconfig_info" style="display:none"> <a href="#/"></a>
-                        <input value="" type="hidden">
-                        <input id="enable_module" value="1" type="hidden">
-                        <input class="effect_to_cart" value="1" type="hidden">
-                        <input class="title_shopping_cart" value="Go to shopping cart" type="hidden">
-                    </div>
-                </div>
-                {% endif %}
-          </li>
+            {% if request.user.is_authenticated %}
+            <li class="level0 parent drop-menu"><a href="blog.html" class="active"><span>Opciones</span></a>
+                <ul class="level1">
+                    <li class="level1 first"><a href="{% url 'miPerfil:publicar' %}" class="active"><span>Publicar</span></a></li>
+                    <li class="level1 nav-10-2"> <a href="{% url 'miPerfil:productos_rentados' %}"> <span>Historial de rentas</span> </a> </li>
+                    <li class="level1 nav-10-2"> <a href="{% url 'miPerfil:mis_productos' %}"> <span>Productos para rentar</span> </a> </li>
+                    <li class="level1 nav-10-2"> <a href="{% url 'miPerfil:mis_favoritos' %}"> <span>Mis favoritos</span> </a> </li>
+                    <li class="level1 nav-10-2"> <a href="{% url 'logout' %}"> <span>Salir</span> </a> </li>
+                </ul>
+            </li>
+            {% endif %}
         </ul>
       </div>
     </div>
