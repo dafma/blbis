@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .forms import ReservacionForm, DateRentaForm
 from productos.models import Product
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
 from decimal import Decimal
@@ -10,6 +11,8 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 from paypal.standard.forms import PayPalPaymentsForm
 
+
+@login_required
 def reservacion(request, pk):
     form = ReservacionForm()
     if request.method == 'POST':
