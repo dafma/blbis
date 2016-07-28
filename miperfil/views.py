@@ -75,23 +75,23 @@ def servicios(request):
 def transporte(request):
     return render(request)
 
-@login_required
+
 class MiproductoUpdate(UpdateView):
     model = Product
     success_url = reverse_lazy('miPerfil:mis_productos')
     fields = ['title', 'description', 'price', 'active', 'num_contacto']
 
-@login_required
+
 class MiproductoDelete(DeleteView):
     model = Product
     success_url = reverse_lazy('miPerfil:mis_productos')
 
-@login_required
+
 class MisFavoritosDelete(DeleteView):
     model = Misfavoritos
     success_url = reverse_lazy('miPerfil:mis_favoritos')
 
-@login_required
+
 class imagenCreate(CreateView):
     model = ProductImage
     template_name = "productos_publicados/add_imagen.html"
