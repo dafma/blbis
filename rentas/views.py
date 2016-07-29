@@ -3,7 +3,7 @@ from .forms import ReservacionForm, DateRentaForm
 from productos.models import Product
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-
+from rentas.models import Reservacion
 
 from decimal import Decimal
 from django.conf import settings
@@ -11,10 +11,10 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 from paypal.standard.forms import PayPalPaymentsForm
 
-
 @login_required
 def reservacion(request, pk):
     form = ReservacionForm()
+    cliente = request.user
     if request.method == 'POST':
         formr = ReservacionForm(request.POST)
         producto = request.POST.get('productoid')
@@ -25,6 +25,10 @@ def reservacion(request, pk):
             producto = Product.objects.get(id =producto)
             precio =  producto.price
             total = diasTotales * precio
+            reserva = Reservacion(cliente=cliente,producto=producto,
+                                                 fecha_inicio=inicio, fecha_termino=fin,
+                                                 costo=total)
+            reserva.save()
             # # rentadia =
             context = {
                 'total':total,
