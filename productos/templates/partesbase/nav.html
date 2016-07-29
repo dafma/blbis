@@ -65,7 +65,7 @@
           <li class="level0 parent drop-menu"><a href="blog.html"><span>Blog</span> </a>
           </li>
             {% if request.user.is_authenticated %}
-            <li class="level0 parent drop-menu"><a href="blog.html" class="active"><span>Opciones</span></a>
+            <li class="level0 parent drop-menu"><a href="#" class="active"><span>Opciones</span></a>
                 <ul class="level1">
                     <li class="level1 first"><a href="{% url 'miPerfil:publicar' %}" class="active"><span>Publicar</span></a></li>
                     <li class="level1 nav-10-2"> <a href="{% url 'miPerfil:productos_rentados' %}"> <span>Historial de rentas</span> </a> </li>
