@@ -62,7 +62,7 @@
             <div style="display:none;" class="level0-wrapper dropdown-6col">
             </div>
           </li>
-          <li class="level0 parent drop-menu"><a href="blog.html"><span>Blog</span> </a>
+          <li class="level0 parent drop-menu"><a href="{% url 'blog:ndx' %}"><span>Blog</span> </a>
           </li>
             {% if request.user.is_authenticated %}
             <li class="level0 parent drop-menu"><a href="#" class="active"><span>Opciones</span></a>
