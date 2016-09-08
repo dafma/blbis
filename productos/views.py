@@ -75,10 +75,11 @@ def search_productt(request):
     except:
         q = None
     if q:
-        products = Product.objects.filter(Q(title__icontains=q)|Q(price__icontains=q))
+        products = Product.objects.filter(Q(title__icontains=q)or Q(price__icontains=q) or Q(description__iconains=q))
         context = {'query': q, 'products':products}
         template = 'busqueda/busqueda.html'
     else:
         context = {}
         template = 'busqueda/busqueda.html'
     return render(request, template, context)
+

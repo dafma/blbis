@@ -1,0 +1,1626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db [2]">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+    <schema id="1">
+      <visible>1</visible>
+    </schema>
+    <table id="2" parent="1" name="account_contact"/>
+    <table id="3" parent="1" name="account_profile"/>
+    <table id="4" parent="1" name="auth_group"/>
+    <table id="5" parent="1" name="auth_group_permissions"/>
+    <table id="6" parent="1" name="auth_permission"/>
+    <table id="7" parent="1" name="auth_user"/>
+    <table id="8" parent="1" name="auth_user_groups"/>
+    <table id="9" parent="1" name="auth_user_user_permissions"/>
+    <table id="10" parent="1" name="blog_category"/>
+    <table id="11" parent="1" name="blog_post"/>
+    <table id="12" parent="1" name="django_admin_log"/>
+    <table id="13" parent="1" name="django_content_type"/>
+    <table id="14" parent="1" name="django_migrations"/>
+    <table id="15" parent="1" name="django_session"/>
+    <table id="16" parent="1" name="miperfil_misfavoritos"/>
+    <table id="17" parent="1" name="paypal_ipn"/>
+    <table id="18" parent="1" name="productos_category"/>
+    <table id="19" parent="1" name="productos_product"/>
+    <table id="20" parent="1" name="productos_product_categories"/>
+    <table id="21" parent="1" name="productos_productfeatured"/>
+    <table id="22" parent="1" name="productos_productimage"/>
+    <table id="23" parent="1" name="productos_variation"/>
+    <table id="24" parent="1" name="rentas_reservacion"/>
+    <table id="25" parent="1" name="social_auth_association"/>
+    <table id="26" parent="1" name="social_auth_code"/>
+    <table id="27" parent="1" name="social_auth_nonce"/>
+    <table id="28" parent="1" name="social_auth_usersocialauth"/>
+    <table id="29" parent="1" name="sqlite_sequence"/>
+    <table id="30" parent="1" name="star_ratings_rating"/>
+    <table id="31" parent="1" name="star_ratings_userrating"/>
+    <table id="32" parent="1" name="taggit_tag"/>
+    <table id="33" parent="1" name="taggit_taggeditem"/>
+    <column id="34" parent="2" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="35" parent="2" name="created">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="36" parent="2" name="user_from_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="37" parent="2" name="user_to_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="38" parent="2" name="account_contact_c139bdcd">
+      <columns>user_to_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="39" parent="2" name="account_contact_e1e8addb">
+      <columns>user_from_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="40" parent="2" name="account_contact_e2fa5388">
+      <columns>created</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="41" parent="2">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="42" parent="2" name="#FAKE_account_contact_1">
+      <columns>user_to_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="43" parent="2" name="#FAKE_account_contact_2">
+      <columns>user_from_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="44" parent="3" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="45" parent="3" name="date_of_birth">
+      <data-type>DATE(2000000000,10)|12</data-type>
+    </column>
+    <column id="46" parent="3" name="photo">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+    </column>
+    <column id="47" parent="3" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <key id="48" parent="3">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="49" parent="3" name="#FAKE_account_profile_1">
+      <columns>user_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="50" parent="4" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="51" parent="4" name="name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(80) (2000000000,10)|12</data-type>
+    </column>
+    <key id="52" parent="4">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="53" parent="5" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="54" parent="5" name="group_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="55" parent="5" name="permission_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="56" parent="5" name="auth_group_permissions_8373b171">
+      <columns>permission_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="57" parent="5" name="auth_group_permissions_0e939a4f">
+      <columns>group_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="58" parent="5">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="59" parent="5" name="#FAKE_auth_group_permissions_1">
+      <columns>permission_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_permission.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="60" parent="5" name="#FAKE_auth_group_permissions_2">
+      <columns>group_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_group.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="61" parent="6" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="62" parent="6" name="content_type_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="63" parent="6" name="codename">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+    </column>
+    <column id="64" parent="6" name="name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <index id="65" parent="6" name="auth_permission_417f1b1c">
+      <columns>content_type_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="66" parent="6">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="67" parent="6" name="#FAKE_auth_permission_1">
+      <columns>content_type_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.django_content_type.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="68" parent="7" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="69" parent="7" name="password">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(128) (2000000000,10)|12</data-type>
+    </column>
+    <column id="70" parent="7" name="last_login">
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="71" parent="7" name="is_superuser">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="72" parent="7" name="username">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(30) (2000000000,10)|12</data-type>
+    </column>
+    <column id="73" parent="7" name="first_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(30) (2000000000,10)|12</data-type>
+    </column>
+    <column id="74" parent="7" name="last_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(30) (2000000000,10)|12</data-type>
+    </column>
+    <column id="75" parent="7" name="email">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(254) (2000000000,10)|12</data-type>
+    </column>
+    <column id="76" parent="7" name="is_staff">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="77" parent="7" name="is_active">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="78" parent="7" name="date_joined">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <key id="79" parent="7">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="80" parent="8" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="81" parent="8" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="82" parent="8" name="group_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="83" parent="8" name="auth_user_groups_0e939a4f">
+      <columns>group_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="84" parent="8" name="auth_user_groups_e8701ad4">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="85" parent="8">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="86" parent="8" name="#FAKE_auth_user_groups_1">
+      <columns>group_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_group.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="87" parent="8" name="#FAKE_auth_user_groups_2">
+      <columns>user_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="88" parent="9" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="89" parent="9" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="90" parent="9" name="permission_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="91" parent="9" name="auth_user_user_permissions_8373b171">
+      <columns>permission_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="92" parent="9" name="auth_user_user_permissions_e8701ad4">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="93" parent="9">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="94" parent="9" name="#FAKE_auth_user_user_permissions_1">
+      <columns>permission_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_permission.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="95" parent="9" name="#FAKE_auth_user_user_permissions_2">
+      <columns>user_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="96" parent="10" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="97" parent="10" name="name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(30) (2000000000,10)|12</data-type>
+    </column>
+    <column id="98" parent="10" name="is_active">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <key id="99" parent="10">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="100" parent="11" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="101" parent="11" name="title">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200) (2000000000,10)|12</data-type>
+    </column>
+    <column id="102" parent="11" name="slug">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200) (2000000000,10)|12</data-type>
+    </column>
+    <column id="103" parent="11" name="description">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(220) (2000000000,10)|12</data-type>
+    </column>
+    <column id="104" parent="11" name="content">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <column id="105" parent="11" name="publish">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="106" parent="11" name="created">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="107" parent="11" name="author_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="108" parent="11" name="category_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="109" parent="11" name="imagen">
+      <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+    </column>
+    <index id="110" parent="11" name="blog_post_b583a629">
+      <columns>category_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="111" parent="11" name="blog_post_4f331e2f">
+      <columns>author_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="112" parent="11">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="113" parent="11" name="#FAKE_blog_post_1">
+      <columns>category_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.blog_category.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="114" parent="11" name="#FAKE_blog_post_2">
+      <columns>author_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="115" parent="12" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="116" parent="12" name="action_time">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="117" parent="12" name="object_id">
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <column id="118" parent="12" name="object_repr">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200) (2000000000,10)|12</data-type>
+    </column>
+    <column id="119" parent="12" name="action_flag">
+      <mandatory>1</mandatory>
+      <data-type>SMALLINT UNSIGNED(2000000000,10)|4</data-type>
+    </column>
+    <column id="120" parent="12" name="change_message">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <column id="121" parent="12" name="content_type_id">
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="122" parent="12" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="123" parent="12" name="django_admin_log_e8701ad4">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="124" parent="12" name="django_admin_log_417f1b1c">
+      <columns>content_type_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="125" parent="12">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="126" parent="12" name="#FAKE_django_admin_log_1">
+      <columns>user_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="127" parent="12" name="#FAKE_django_admin_log_2">
+      <columns>content_type_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.django_content_type.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="128" parent="13" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="129" parent="13" name="app_label">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+    </column>
+    <column id="130" parent="13" name="model">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+    </column>
+    <key id="131" parent="13">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="132" parent="14" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="133" parent="14" name="app">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="134" parent="14" name="name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="135" parent="14" name="applied">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <key id="136" parent="14">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="137" parent="15" name="session_key">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(40) (2000000000,10)|12</data-type>
+    </column>
+    <column id="138" parent="15" name="session_data">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <column id="139" parent="15" name="expire_date">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <index id="140" parent="15" name="django_session_de54fa62">
+      <columns>expire_date</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="141" parent="15">
+      <columns>session_key</columns>
+      <primary>1</primary>
+    </key>
+    <column id="142" parent="16" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="143" parent="16" name="producto_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="144" parent="16" name="usuario_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="145" parent="16" name="miperfil_misfavoritos_abfe0f96">
+      <columns>usuario_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="146" parent="16" name="miperfil_misfavoritos_bb91903a">
+      <columns>producto_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="147" parent="16">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="148" parent="16" name="#FAKE_miperfil_misfavoritos_1">
+      <columns>usuario_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="149" parent="16" name="#FAKE_miperfil_misfavoritos_2">
+      <columns>producto_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.productos_product.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="150" parent="17" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="151" parent="17" name="business">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(127) (2000000000,10)|12</data-type>
+    </column>
+    <column id="152" parent="17" name="charset">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="153" parent="17" name="custom">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(256) (2000000000,10)|12</data-type>
+    </column>
+    <column id="154" parent="17" name="notify_version">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="155" parent="17" name="parent_txn_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(19) (2000000000,10)|12</data-type>
+    </column>
+    <column id="156" parent="17" name="receiver_email">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(254) (2000000000,10)|12</data-type>
+    </column>
+    <column id="157" parent="17" name="receiver_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="158" parent="17" name="residence_country">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(2) (2000000000,10)|12</data-type>
+    </column>
+    <column id="159" parent="17" name="test_ipn">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="160" parent="17" name="txn_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="161" parent="17" name="verify_sign">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="162" parent="17" name="address_country">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+    </column>
+    <column id="163" parent="17" name="address_city">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(40) (2000000000,10)|12</data-type>
+    </column>
+    <column id="164" parent="17" name="address_country_code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+    </column>
+    <column id="165" parent="17" name="address_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(128) (2000000000,10)|12</data-type>
+    </column>
+    <column id="166" parent="17" name="address_state">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(40) (2000000000,10)|12</data-type>
+    </column>
+    <column id="167" parent="17" name="address_status">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="168" parent="17" name="address_street">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200) (2000000000,10)|12</data-type>
+    </column>
+    <column id="169" parent="17" name="address_zip">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(20) (2000000000,10)|12</data-type>
+    </column>
+    <column id="170" parent="17" name="contact_phone">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(20) (2000000000,10)|12</data-type>
+    </column>
+    <column id="171" parent="17" name="first_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+    </column>
+    <column id="172" parent="17" name="last_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+    </column>
+    <column id="173" parent="17" name="payer_business_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(127) (2000000000,10)|12</data-type>
+    </column>
+    <column id="174" parent="17" name="payer_email">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(127) (2000000000,10)|12</data-type>
+    </column>
+    <column id="175" parent="17" name="payer_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(13) (2000000000,10)|12</data-type>
+    </column>
+    <column id="176" parent="17" name="auth_amount">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="177" parent="17" name="auth_exp">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(28) (2000000000,10)|12</data-type>
+    </column>
+    <column id="178" parent="17" name="auth_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(19) (2000000000,10)|12</data-type>
+    </column>
+    <column id="179" parent="17" name="auth_status">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="180" parent="17" name="exchange_rate">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="181" parent="17" name="invoice">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(127) (2000000000,10)|12</data-type>
+    </column>
+    <column id="182" parent="17" name="item_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(127) (2000000000,10)|12</data-type>
+    </column>
+    <column id="183" parent="17" name="item_number">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(127) (2000000000,10)|12</data-type>
+    </column>
+    <column id="184" parent="17" name="mc_currency">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+    </column>
+    <column id="185" parent="17" name="mc_fee">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="186" parent="17" name="mc_gross">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="187" parent="17" name="mc_handling">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="188" parent="17" name="mc_shipping">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="189" parent="17" name="memo">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="190" parent="17" name="num_cart_items">
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="191" parent="17" name="option_name1">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+    </column>
+    <column id="192" parent="17" name="option_name2">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+    </column>
+    <column id="193" parent="17" name="payer_status">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="194" parent="17" name="payment_date">
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="195" parent="17" name="payment_gross">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="196" parent="17" name="payment_status">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="197" parent="17" name="payment_type">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="198" parent="17" name="pending_reason">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="199" parent="17" name="protection_eligibility">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="200" parent="17" name="quantity">
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="201" parent="17" name="reason_code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="202" parent="17" name="remaining_settle">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="203" parent="17" name="settle_amount">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="204" parent="17" name="settle_currency">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+    </column>
+    <column id="205" parent="17" name="shipping">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="206" parent="17" name="shipping_method">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="207" parent="17" name="tax">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="208" parent="17" name="transaction_entity">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="209" parent="17" name="auction_buyer_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+    </column>
+    <column id="210" parent="17" name="auction_closing_date">
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="211" parent="17" name="auction_multi_item">
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="212" parent="17" name="for_auction">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="213" parent="17" name="amount">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="214" parent="17" name="amount_per_cycle">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="215" parent="17" name="initial_payment_amount">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="216" parent="17" name="next_payment_date">
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="217" parent="17" name="outstanding_balance">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="218" parent="17" name="payment_cycle">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="219" parent="17" name="period_type">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="220" parent="17" name="product_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="221" parent="17" name="product_type">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="222" parent="17" name="profile_status">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="223" parent="17" name="recurring_payment_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="224" parent="17" name="rp_invoice_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(127) (2000000000,10)|12</data-type>
+    </column>
+    <column id="225" parent="17" name="time_created">
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="226" parent="17" name="amount1">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="227" parent="17" name="amount2">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="228" parent="17" name="amount3">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="229" parent="17" name="mc_amount1">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="230" parent="17" name="mc_amount2">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="231" parent="17" name="mc_amount3">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="232" parent="17" name="password">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(24) (2000000000,10)|12</data-type>
+    </column>
+    <column id="233" parent="17" name="period1">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="234" parent="17" name="period2">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="235" parent="17" name="period3">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="236" parent="17" name="reattempt">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(1) (2000000000,10)|12</data-type>
+    </column>
+    <column id="237" parent="17" name="recur_times">
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="238" parent="17" name="recurring">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(1) (2000000000,10)|12</data-type>
+    </column>
+    <column id="239" parent="17" name="retry_at">
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="240" parent="17" name="subscr_date">
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="241" parent="17" name="subscr_effective">
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="242" parent="17" name="subscr_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(19) (2000000000,10)|12</data-type>
+    </column>
+    <column id="243" parent="17" name="username">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+    </column>
+    <column id="244" parent="17" name="case_creation_date">
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="245" parent="17" name="case_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="246" parent="17" name="case_type">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="247" parent="17" name="receipt_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="248" parent="17" name="currency_code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+    </column>
+    <column id="249" parent="17" name="handling_amount">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="250" parent="17" name="transaction_subject">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(256) (2000000000,10)|12</data-type>
+    </column>
+    <column id="251" parent="17" name="ipaddress">
+      <data-type>CHAR(39) (2000000000,10)|12</data-type>
+    </column>
+    <column id="252" parent="17" name="flag">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="253" parent="17" name="flag_code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(16) (2000000000,10)|12</data-type>
+    </column>
+    <column id="254" parent="17" name="flag_info">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <column id="255" parent="17" name="query">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <column id="256" parent="17" name="response">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <column id="257" parent="17" name="created_at">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="258" parent="17" name="updated_at">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="259" parent="17" name="from_view">
+      <data-type>VARCHAR(6) (2000000000,10)|12</data-type>
+    </column>
+    <column id="260" parent="17" name="mp_id">
+      <data-type>VARCHAR(128) (2000000000,10)|12</data-type>
+    </column>
+    <column id="261" parent="17" name="option_selection1">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200) (2000000000,10)|12</data-type>
+    </column>
+    <column id="262" parent="17" name="option_selection2">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200) (2000000000,10)|12</data-type>
+    </column>
+    <column id="263" parent="17" name="txn_type">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <index id="264" parent="17" name="paypal_ipn_8e113603">
+      <columns>txn_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="265" parent="17">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="266" parent="18" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="267" parent="18" name="title">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(120) (2000000000,10)|12</data-type>
+    </column>
+    <column id="268" parent="18" name="slug">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(50) (2000000000,10)|12</data-type>
+    </column>
+    <column id="269" parent="18" name="description">
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <column id="270" parent="18" name="active">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="271" parent="18" name="timestamp">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <key id="272" parent="18">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="273" parent="19" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="274" parent="19" name="title">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(120) (2000000000,10)|12</data-type>
+    </column>
+    <column id="275" parent="19" name="description">
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <column id="276" parent="19" name="active">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="277" parent="19" name="default_id">
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="278" parent="19" name="usuario_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="279" parent="19" name="slug">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200) (2000000000,10)|12</data-type>
+    </column>
+    <column id="280" parent="19" name="num_contacto">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(14) (2000000000,10)|12</data-type>
+    </column>
+    <column id="281" parent="19" name="price">
+      <mandatory>1</mandatory>
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <index id="282" parent="19" name="productos_product_id_7a8fbc745e3787df_idx">
+      <columns>id
+slug</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="283" parent="19" name="productos_product_2dbcba41">
+      <columns>slug</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="284" parent="19" name="productos_product_abfe0f96">
+      <columns>usuario_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="285" parent="19" name="productos_product_7e11fc17">
+      <columns>default_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="286" parent="19">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="287" parent="19" name="#FAKE_productos_product_1">
+      <columns>usuario_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="288" parent="19" name="#FAKE_productos_product_2">
+      <columns>default_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.productos_category.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="289" parent="20" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="290" parent="20" name="product_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="291" parent="20" name="category_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="292" parent="20" name="productos_product_categories_b583a629">
+      <columns>category_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="293" parent="20" name="productos_product_categories_9bea82de">
+      <columns>product_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="294" parent="20">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="295" parent="20" name="#FAKE_productos_product_categories_1">
+      <columns>category_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.productos_category.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="296" parent="20" name="#FAKE_productos_product_categories_2">
+      <columns>product_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.productos_product.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="297" parent="21" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="298" parent="21" name="image">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+    </column>
+    <column id="299" parent="21" name="title">
+      <data-type>VARCHAR(120) (2000000000,10)|12</data-type>
+    </column>
+    <column id="300" parent="21" name="text">
+      <data-type>VARCHAR(220) (2000000000,10)|12</data-type>
+    </column>
+    <column id="301" parent="21" name="text_right">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="302" parent="21" name="text_css_color">
+      <data-type>VARCHAR(6) (2000000000,10)|12</data-type>
+    </column>
+    <column id="303" parent="21" name="show_price">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="304" parent="21" name="make_image_background">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="305" parent="21" name="active">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="306" parent="21" name="product_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="307" parent="21" name="productos_productfeatured_9bea82de">
+      <columns>product_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="308" parent="21">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="309" parent="21" name="#FAKE_productos_productfeatured_1">
+      <columns>product_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.productos_product.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="310" parent="22" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="311" parent="22" name="image">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+    </column>
+    <column id="312" parent="22" name="product_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="313" parent="22" name="productos_productimage_9bea82de">
+      <columns>product_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="314" parent="22">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="315" parent="22" name="#FAKE_productos_productimage_1">
+      <columns>product_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.productos_product.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="316" parent="23" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="317" parent="23" name="title">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(120) (2000000000,10)|12</data-type>
+    </column>
+    <column id="318" parent="23" name="price">
+      <mandatory>1</mandatory>
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="319" parent="23" name="sale_price">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="320" parent="23" name="active">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="321" parent="23" name="inventory">
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="322" parent="23" name="product_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="323" parent="23" name="productos_variation_9bea82de">
+      <columns>product_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="324" parent="23">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="325" parent="23" name="#FAKE_productos_variation_1">
+      <columns>product_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.productos_product.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="326" parent="24" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="327" parent="24" name="fecha_inicio">
+      <mandatory>1</mandatory>
+      <data-type>DATE(2000000000,10)|12</data-type>
+    </column>
+    <column id="328" parent="24" name="fecha_termino">
+      <mandatory>1</mandatory>
+      <data-type>DATE(2000000000,10)|12</data-type>
+    </column>
+    <column id="329" parent="24" name="cliente_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="330" parent="24" name="producto_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="331" parent="24" name="renta_pendiente">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="332" parent="24" name="tyc">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="333" parent="24" name="costo">
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <index id="334" parent="24" name="rentas_reservacion_bb91903a">
+      <columns>producto_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="335" parent="24" name="rentas_reservacion_4a860110">
+      <columns>cliente_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="336" parent="24">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="337" parent="24" name="#FAKE_rentas_reservacion_1">
+      <columns>producto_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.productos_product.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="338" parent="24" name="#FAKE_rentas_reservacion_2">
+      <columns>cliente_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="339" parent="25" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="340" parent="25" name="server_url">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="341" parent="25" name="handle">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="342" parent="25" name="secret">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="343" parent="25" name="issued">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="344" parent="25" name="lifetime">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="345" parent="25" name="assoc_type">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(64) (2000000000,10)|12</data-type>
+    </column>
+    <key id="346" parent="25">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="347" parent="26" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="348" parent="26" name="code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+    </column>
+    <column id="349" parent="26" name="verified">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(2000000000,10)|4</data-type>
+    </column>
+    <column id="350" parent="26" name="email">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(254) (2000000000,10)|12</data-type>
+    </column>
+    <index id="351" parent="26" name="social_auth_code_c1336794">
+      <columns>code</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="352" parent="26">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="353" parent="27" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="354" parent="27" name="server_url">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="355" parent="27" name="timestamp">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="356" parent="27" name="salt">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(65) (2000000000,10)|12</data-type>
+    </column>
+    <key id="357" parent="27">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="358" parent="28" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="359" parent="28" name="provider">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(32) (2000000000,10)|12</data-type>
+    </column>
+    <column id="360" parent="28" name="uid">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255) (2000000000,10)|12</data-type>
+    </column>
+    <column id="361" parent="28" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="362" parent="28" name="extra_data">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(2000000000,10)|12</data-type>
+    </column>
+    <index id="363" parent="28" name="social_auth_usersocialauth_e8701ad4">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="364" parent="28">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="365" parent="28" name="#FAKE_social_auth_usersocialauth_1">
+      <columns>user_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="366" parent="29" name="name">
+      <data-type>(2000000000,10)|12</data-type>
+    </column>
+    <column id="367" parent="29" name="seq">
+      <data-type>(2000000000,10)|12</data-type>
+    </column>
+    <column id="368" parent="30" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="369" parent="30" name="count">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(2000000000,10)|4</data-type>
+    </column>
+    <column id="370" parent="30" name="total">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(2000000000,10)|4</data-type>
+    </column>
+    <column id="371" parent="30" name="average">
+      <mandatory>1</mandatory>
+      <data-type>DECIMAL(2000000000,10)|6</data-type>
+    </column>
+    <column id="372" parent="30" name="object_id">
+      <data-type>INTEGER UNSIGNED(2000000000,10)|4</data-type>
+    </column>
+    <column id="373" parent="30" name="content_type_id">
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="374" parent="30" name="star_ratings_rating_417f1b1c">
+      <columns>content_type_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="375" parent="30">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="376" parent="30" name="#FAKE_star_ratings_rating_1">
+      <columns>content_type_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.django_content_type.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="377" parent="31" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="378" parent="31" name="created">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="379" parent="31" name="modified">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(2000000000,10)|12</data-type>
+    </column>
+    <column id="380" parent="31" name="ip">
+      <data-type>CHAR(39) (2000000000,10)|12</data-type>
+    </column>
+    <column id="381" parent="31" name="score">
+      <mandatory>1</mandatory>
+      <data-type>SMALLINT UNSIGNED(2000000000,10)|4</data-type>
+    </column>
+    <column id="382" parent="31" name="rating_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="383" parent="31" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="384" parent="31" name="star_ratings_userrating_e8701ad4">
+      <columns>user_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="385" parent="31" name="star_ratings_userrating_c14e3df7">
+      <columns>rating_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="386" parent="31">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="387" parent="31" name="#FAKE_star_ratings_userrating_1">
+      <columns>user_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="388" parent="31" name="#FAKE_star_ratings_userrating_2">
+      <columns>rating_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.star_ratings_rating.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="389" parent="32" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="390" parent="32" name="name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+    </column>
+    <column id="391" parent="32" name="slug">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100) (2000000000,10)|12</data-type>
+    </column>
+    <key id="392" parent="32">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="393" parent="33" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="394" parent="33" name="object_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="395" parent="33" name="content_type_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <column id="396" parent="33" name="tag_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(2000000000,10)|4</data-type>
+    </column>
+    <index id="397" parent="33" name="taggit_taggeditem_content_type_id_193887d1e03a6683_idx">
+      <columns>content_type_id
+object_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="398" parent="33" name="taggit_taggeditem_76f094bc">
+      <columns>tag_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="399" parent="33" name="taggit_taggeditem_417f1b1c">
+      <columns>content_type_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="400" parent="33" name="taggit_taggeditem_af31437c">
+      <columns>object_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="401" parent="33">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="402" parent="33" name="#FAKE_taggit_taggeditem_1">
+      <columns>tag_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.taggit_tag.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="403" parent="33" name="#FAKE_taggit_taggeditem_2">
+      <columns>content_type_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.django_content_type.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+  </database-model>
+</dataSource>

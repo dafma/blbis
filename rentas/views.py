@@ -53,7 +53,8 @@ def reservacion(request, pk):
                 'inicio':inicio,
                 'fin':fin,
                 'ulReserva':ulReserva,
-                'form':form
+                'form':form,
+                'diasTotales':diasTotales,
             }
             return render(request, 'pago_pos_reservacion.html',context)
         else:
