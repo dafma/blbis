@@ -42,10 +42,8 @@ INSTALLED_APPS = (
     'productos',
     'miperfil',
     'rentas',
-
+    'api',
     'blog',
-
-
     # 3rd party app
     'django_markdown',
     'django_social_share',
@@ -54,6 +52,13 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'debug_toolbar',
     'paypal.standard.ipn',
+
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django.contrib.sites',
+    'rest_auth',
+    'allauth',
+    'rest_auth.registration',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -141,18 +146,22 @@ AUTHENTICATION_BACKENDS = (
     'account.authentication.EmailAuthBackend',
 )
 
-SOCIAL_AUTH_FACEBOOK_KEY = '189689694716144sd'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'dcac20b747b1e307c9bc49d3cbadc6bbsd'
+SOCIAL_AUTH_FACEBOOK_KEY = '189689694716144'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'dcac20b747b1e307c9bc49d3cbadc6bb'
 
-SOCIAL_AUTH_TWITTER_KEY = 'Svjtx7c5Z1aw7Ah9aZL1W6dXhbhsd'
-SOCIAL_AUTH_TWITTER_SECRET = 'aSpT8FPaHR41dWV16j74Esn48BWVSeoszLAUwhmDAOsq77Sdh20Lsd'
+SOCIAL_AUTH_TWITTER_KEY = 'Svjtx7c5Z1w7Ah9ZL1W6dXhbh'
+SOCIAL_AUTH_TWITTER_SECRET = 'aSpT8FPaHR41dWV16j74En48BWVSeoszLAUwhmDAOq77Sdh20L'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '3692960562a43-9bno3oapb9vc2unhmah895hedtja36chs.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '6awUotsnxUvCnaRi3gIk5sth6PL'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '369296056243-9bno3opb9vc2unhmah895hedtja36chs.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '6awUotnxUvCnRi3gIk5th6PL'
 
-DISQUS_API_KEY = 'p7oKQ2Z9yGca8ssCtcof4IM2hqsaOCoMtabu9BONqi1W7kxPdjyWLRY9eazwUXWtxyXSN'
+DISQUS_API_KEY = 'p7oKQ2Z9yGc8sCtcof4IM2hqsOCoMtbu9BONqi1W7kxPdjyWLRY9ezwUXWtxyXSN'
 DISQUS_WEBSITE_SHORTNAME = 'SeRentaTodo'
 
 
 PAYPAL_RECEIVER_EMAIL = 'bcctesis@gmail.com'
 PAYPAL_TEST = True
+
+
+
+SITE_ID = 1

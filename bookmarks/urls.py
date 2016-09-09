@@ -12,11 +12,13 @@ urlpatterns = [
     url(r'^productos/', include('productos.urls', namespace="productos")),
     url(r'^rentar/', include('rentas.urls', namespace="rentas")),
 
+    # api
+    url(r'api/', include('api.urls', namespace='api')),
+
     # busqueda
     url(r'^s/','productos.views.search_productt', name='search_productt'),
+
     # blog
-
-
     url(r'blog/', include('blog.urls', namespace='blog')),
 
     # python-social-auth
@@ -27,7 +29,6 @@ urlpatterns = [
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
     url(r'^paypal/', include('paypal.standard.ipn.urls')),
 ]
-
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
