@@ -5,9 +5,9 @@ from api import views
 
 router = routers.DefaultRouter()
 router.register(r'productos', views.PProductViewSet)
-router.register(r'servicios', views.SProductPViewSet)
-router.register(r'transporte', views.TProductPViewSet)
-router.register(r'inmobiliario', views.IProductPViewSet)
+# router.register(r'servicios', views.SProductPViewSet)
+# router.register(r'transporte', views.TProductPViewSet)
+# router.register(r'inmobiliario', views.IProductPViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

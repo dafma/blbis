@@ -10,20 +10,20 @@ class PProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.filter(categories__title="Inmuebles")
     serializer_class = ProductSerializer
 
-
-class SProductPViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.filter(categories__title="fiestas")
-    serializer_class = ProductSerializer
-
-
-
-class TProductPViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.filter(categories__title="carros")
-    serializer_class = ProductSerializer
-
-
-
-class IProductPViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.filter(categories__title="Inmuebles")
-    serializer_class = ProductSerializer
-
+#
+# class SProductPViewSet(viewsets.ModelViewSet):
+#     queryset = Product.objects.filter(categories__title="fiestas")
+#     serializer_class = ProductSerializer
+#
+#
+#
+# class TProductPViewSet(viewsets.ModelViewSet):
+#     queryset = Product.objects.filter(categories__title="carros")
+#     serializer_class = ProductSerializer
+#
+#
+#
+# class IProductPViewSet(viewsets.ModelViewSet):
+#     queryset = Product.objects.filter(categories__title="Inmuebles")
+#     serializer_class = ProductSerializer
+#
