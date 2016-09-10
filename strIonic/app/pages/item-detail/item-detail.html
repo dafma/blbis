@@ -5,14 +5,20 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>item-detail</ion-title>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Item Details</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+ <div *ngIf="selectedItem" class="selection">
+    <b>{{selectedItem.title}}</b>
+    <ion-icon name=""></ion-icon>
+    <div>
+      You navigated here from <b>{{selectedItem.title}}</b>
+    </div>
+  </div>
 </ion-content>

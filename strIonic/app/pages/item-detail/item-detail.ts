@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /*
   Generated class for the ItemDetailPage page.
@@ -11,9 +11,12 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'build/pages/item-detail/item-detail.html',
 })
 export class ItemDetailPage {
+    selectedItem: any;
 
-  constructor(private navCtrl: NavController) {
-
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
+    this.selectedItem = navParams.get('pro');
+    console.log(this.selectedItem);
+    
   }
 
 }

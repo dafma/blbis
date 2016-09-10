@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import {InmobiliarioService} from '../../providers/inmobiliario-service/inmobiliario-service';
+import {ItemDetailPage} from '../item-detail/item-detail';
+
 
 @Component({
   templateUrl: 'build/pages/page1/page1.html',
@@ -8,10 +10,14 @@ import {InmobiliarioService} from '../../providers/inmobiliario-service/inmobili
 })
 export class Page1 {
   prod: any[] = [];
+  selectedItem: any;
 
   constructor(
     public navCtrl: NavController,
-    private inmobiliarioService: InmobiliarioService) {
+    private inmobiliarioService: InmobiliarioService,
+    private navParams: NavParams) {
+
+   this.selectedItem = navParams.get('pro');   
 
     this.inmobiliarioService.load()
     .then(data => {
@@ -20,4 +26,9 @@ export class Page1 {
       
     }) ;  
   }
+    itemTapped(event, pro) {
+    this.navCtrl.push(ItemDetailPage, {
+      pro: pro
+    });
+}
 }

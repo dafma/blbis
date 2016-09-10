@@ -10,7 +10,7 @@
 
 <ion-content padding class="page1"> 
   <ion-list>
-  <ion-item *ngFor="let pro of prod">
+  <ion-item *ngFor="let pro of prod" (click)="itemTapped($event, pro)">
     <ion-thumbnail item-left>
       <img src="img/thumbnail-totoro.png">
     </ion-thumbnail>
@@ -19,5 +19,11 @@
     <button clear item-right>View</button>
   </ion-item>
 </ion-list>
+
+
+
+<div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
 
 </ion-content>
