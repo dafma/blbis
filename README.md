@@ -6,15 +6,14 @@ Desarrollo usando django 1.8
  
 * aplicaciones moviles android, ios y windowsmobile construidas con ionic2 consumiendo el rest
 * Login con redes sociales
-* Palidacion de usuario mediante email, recuperacion de cuenta via email
+* Validacion de usuario mediante email, recuperación de cuenta via email
 * Pago con paypal
 * Blog
 * Sistema de comentarios mediante disqus
 * Uso de Google Maps
 * Crear, Eliminar, Actuaizar Productos
 * Historial de rentas
-* Crear, Eliminar, Actuaizar Productos
-* Agregar Mis favortios
+* Agregar favortios
 * api rest
  
  > index
