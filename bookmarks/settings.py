@@ -59,6 +59,8 @@ INSTALLED_APPS = (
     'rest_auth',
     'allauth',
     'rest_auth.registration',
+    'cors',
+    'corsheaders',
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
