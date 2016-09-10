@@ -1,22 +1,22 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar primary>
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Page Uno</ion-title>
+    <ion-title>Inmuebles</ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding class="page1"> 
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
   <ion-item *ngFor="let pro of prod" (click)="itemTapped($event, pro)">
     <ion-thumbnail item-left>
-      <img src="img/thumbnail-totoro.png">
+      <img src="http://img.aws.ehowcdn.com/intl-50x50/ds-photo/getty/article/148/223/AA014704.jpg">
     </ion-thumbnail>
     <h2>{{ pro.title | uppercase }}</h2>
     <p>{{pro.price}}</p>
-    <button clear item-right>View</button>
+    <button clear item-right>Ver</button>
   </ion-item>
 </ion-list>
 

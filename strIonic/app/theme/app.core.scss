@@ -10,3 +10,24 @@
 @import "../pages/page1/page1";
 
 @import "../pages/page2/page2";
+
+
+.side-menu-item {
+  background: none;
+  color: white;
+  font-weight: 300;
+  border: 0px; }
+  .side-menu-item .item-content {
+    background: none; }
+    .side-menu-item .item-content.activated {
+      background: rgba(255, 255, 255, 0.4); }
+
+.side-menu-gradient {
+  background: -webkit-linear-gradient(left top, #6A1B9A, #9C27B0);
+  background: -o-linear-gradient(left top, #6A1B9A, #9C27B0);
+  background: -moz-linear-gradient(left top, #6A1B9A, #9C27B0);
+  background: linear-gradient(left top, #6A1B9A, #9C27B0); }
+
+.profile-image img {
+  margin: 10px;
+}
